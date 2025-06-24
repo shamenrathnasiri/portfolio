@@ -7,7 +7,7 @@ export default function Navbar() {
 
 return (
     <nav className="bg-white shadow-md px-4 py-3 md:flex md:items-center md:justify-between">
-      {/* Left: Name/Logo */}
+
     <div className="flex justify-between items-center">
         <h1 className="font-bold text-xl text-blue-700">Bhanuka Shamen</h1>
         <button
@@ -18,7 +18,6 @@ return (
         </button>
     </div>
 
-      {/* Right: Navigation links */}
     <div className={`mt-2 md:mt-0 ${menuOpen ? 'block' : 'hidden'} md:flex space-y-2 md:space-y-0 md:space-x-6`}>
         <Link href="/" className="block hover:text-blue-600">Home</Link>
         <Link href="/about" className="block hover:text-blue-600">About Me</Link>
