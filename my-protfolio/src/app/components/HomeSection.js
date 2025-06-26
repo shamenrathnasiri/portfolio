@@ -1,7 +1,10 @@
-import bgImg from '../images/My.jpg'
+import bgImg from '../components/My.jpg'
+import React from 'react';
+import Link from 'next/link';
 
-export default function HomePage() {
+export default function page() {
 return (
+  <section id='home'>
     <div
     className="w-full min-h-[500px] sm:min-h-[600px] md:min-h-screen bg-cover bg-center bg-no-repeat flex flex-col sm:flex-row items-start sm:items-center px-6 sm:px-10 lg:px-20 py-10 sm:py-0"
     style={{ backgroundImage: `url(${bgImg.src})` }}
@@ -45,6 +48,7 @@ return (
 </div>
 </div>
 </div>
+</section>
 
 );
 }

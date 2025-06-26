@@ -1,12 +1,13 @@
 import React from 'react'
-import Home from '../app/pages/home'
-import About from '../app/pages/about'
+import HomeSection from './components/HomeSection.js'
+import AboutSection from './components/AboutSection.js'
+import Link from 'next/link'
 
 function page() {
   return (
     <div>
-      <Home/>
-      <About/>
+      <HomeSection/>
+      <AboutSection/>
     </div>
   )
 }
