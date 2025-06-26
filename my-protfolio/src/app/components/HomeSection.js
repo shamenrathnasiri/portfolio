@@ -1,4 +1,4 @@
-import bgImg from '../components/My.jpg'
+import bgImg from '../../../public/My.jpg'
 import React from 'react';
 import Link from 'next/link';
 
