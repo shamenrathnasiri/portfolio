@@ -11,6 +11,9 @@ import Cake1 from '../../../public/(uiux)/cake1.jpg';
 import Coffee2 from '../../../public/(uiux)/coffee2.jpg';
 import Coffee1 from '../../../public/(uiux)/coffee1.jpg';
 import Cake2 from '../../../public/(uiux)/cake2.jpg';
+import Pizza1 from '../../../public/(uiux)/pizza1.jpg';
+import Pizza2 from '../../../public/(uiux)/pizza2.jpg'
+import Pizza3 from '../../../public/(uiux)/pizza3.jpg'
 
 const uiuxProjects = [
   {
@@ -39,6 +42,15 @@ const uiuxProjects = [
     highlights: ["50+ Components", "Figma Library"],
     description: "Designed a modern, user-friendly website for a coffee shop using Figma, focusing on aesthetic appeal and easy navigation. Created wireframes and high-fidelity mockups showcasing key sections such as the menu, online ordering, location, and contact. Applied a warm, inviting color palette and custom typography to reflect the brand’s cozy atmosphere. Incorporated interactive elements and smooth transitions to enhance user engagement and browsing experience.",
     images: [Coffee1, Coffee2]
+  },
+  {
+    id: 4,
+    title: "Pizza shop website",
+    category: "web app",
+    year: "2023",
+    highlights: ["50+ Components", "Figma Library"],
+    description: "Designed a modern and responsive Pizza Shop website using Figma, incorporating intuitive navigation, visually engaging layouts, and a clean user interface to enhance customer experience. Focused on UX principles to streamline the online ordering process, including interactive menu sections, cart management, and promotional banners. Ensured mobile responsiveness and consistency across all devices through well-structured wireframes and high-fidelity prototypes.",
+    images: [Pizza2, Pizza1, Pizza3]
   }
 ];
 

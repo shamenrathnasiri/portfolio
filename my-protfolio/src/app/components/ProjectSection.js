@@ -50,7 +50,7 @@ return (
         </Link>
 
           {/* Project 3 - Graphic Design */}
-        <div className="w-full sm:w-[300px] transition-all duration-500 transform hover:scale-105 sm:hover:scale-110 animate-slide-up opacity-100 delay-200 group">
+        <Link href="/graphics"className="w-full sm:w-[300px] transition-all duration-500 transform hover:scale-105 sm:hover:scale-110 animate-slide-up opacity-100 delay-200 group">
             <div className="relative w-full h-[200px] sm:h-[200px] overflow-hidden rounded-xl shadow-lg">
             <Image
                 src={graphicdesign}
@@ -66,7 +66,7 @@ return (
                 <span className="text-white font-bold text-xl">Graphic Design</span>
             </div>
             </div>
-        </div>
+        </Link>
         </div>
     </div>
     </section>

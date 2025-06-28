@@ -55,7 +55,8 @@ return (
         >
           Projects
         </a>
-        <Link href="/contact" className="block text-white hover:text-yellow-600" onClick={() => setMenuOpen(false)}>Contact Me</Link>
+        <Link href="#contact" className="block text-white hover:text-yellow-600" onClick={() => setMenuOpen(false)}>
+        Contact Me</Link>
       </div>
     </nav>
   )

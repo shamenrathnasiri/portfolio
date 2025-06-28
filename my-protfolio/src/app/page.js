@@ -2,6 +2,7 @@ import React from 'react'
 import HomeSection from './components/HomeSection.js'
 import AboutSection from './components/AboutSection.js'
 import ProjectSection from './components/ProjectSection.js'
+import ContactSection from './components/ContactSection.js'
 import Link from 'next/link'
 
 function page() {
@@ -10,6 +11,7 @@ function page() {
       <HomeSection/>
       <AboutSection/>
       <ProjectSection/>
+      <ContactSection/>
     </div>
   )
 }
