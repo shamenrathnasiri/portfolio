@@ -7,6 +7,19 @@ import Tute3 from '../../../public/(graphics)/Tute3.jpg'
 import Tute4 from '../../../public/(graphics)/Tute4.jpg'
 import Tute5 from '../../../public/(graphics)/Tute5.jpg'
 import Tute6 from '../../../public/(graphics)/Tute6.jpg'
+import Post1 from '../../../public/(graphics)/post1.jpg'
+import Post2 from '../../../public/(graphics)/post2.jpg'
+import Post3 from '../../../public/(graphics)/post3.jpg'
+import Post4 from '../../../public/(graphics)/post4.jpg'
+import Post5 from '../../../public/(graphics)/post5.jpg'
+import Post6 from '../../../public/(graphics)/post6.jpg'
+import Post7 from '../../../public/(graphics)/post7.jpg'
+import Post8 from '../../../public/(graphics)/post8.jpg'
+import Post9 from '../../../public/(graphics)/post9.jpg'
+import Post10 from '../../../public/(graphics)/post10.jpg'
+import Flayer1 from '../../../public/(graphics)/flayer1.jpg'
+import Flayer2 from '../../../public/(graphics)/flayer2.jpg'
+import Flayer3 from '../../../public/(graphics)/flayer3.jpg'
 
 function GraphicsPage() {
   // Sample data for each collection
@@ -19,15 +32,10 @@ function GraphicsPage() {
       { id: 5, image: Tute5, title: 'Tutorial Cover 5' },
       { id: 6, image: Tute6, title: 'Tutorial Cover 6' },
     ],
-    posts: [
-      { id: 1, title: 'Social Media Post 1', description: 'Instagram post design' },
-      { id: 2, title: 'Social Media Post 2', description: 'Facebook post design' },
-      { id: 3, title: 'Social Media Post 3', description: 'Twitter post design' },
-    ],
     flayes: [
-      { id: 1, title: 'Flyer Design 1', description: 'Event promotion' },
-      { id: 2, title: 'Flyer Design 2', description: 'Product launch' },
-      { id: 3, title: 'Flyer Design 3', description: 'Music festival' },
+      { id: 1, image: Flayer1, title: 'Flyer Design 1', description: 'Event promotion' },
+      { id: 2, image: Flayer2, title: 'Flyer Design 2', description: 'Product launch' },
+      { id: 3, image: Flayer3, title: 'Flyer Design 3', description: 'Music festival' },
     ]
   };
 
@@ -71,6 +79,8 @@ function GraphicsPage() {
                     src={item.image}
                     alt={item.title}
                     className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
+                    width={500}
+                    height={600}
                   />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
@@ -87,14 +97,32 @@ function GraphicsPage() {
             <span className="w-4 h-8 bg-red-600 mr-4"></span>
             Posts
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {collections.posts.map((item) => (
-              <div key={item.id} className="bg-gray-900 p-6 rounded-lg border border-gray-800 hover:border-red-600 transition-colors">
-                <div className="bg-red-600 w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mb-4">
-                  {item.id}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {[
+              { id: 1, image: Post1, title: 'Social Media Post 1' },
+              { id: 2, image: Post2, title: 'Social Media Post 2' },
+              { id: 3, image: Post3, title: 'Social Media Post 3' },
+              { id: 4, image: Post4, title: 'Social Media Post 4' },
+              { id: 5, image: Post5, title: 'Social Media Post 5' },
+              { id: 6, image: Post6, title: 'Social Media Post 6' },
+              { id: 7, image: Post7, title: 'Social Media Post 7' },
+              { id: 8, image: Post8, title: 'Social Media Post 8' },
+              { id: 9, image: Post9, title: 'Social Media Post 9' },
+              { id: 10, image: Post10, title: 'Social Media Post 10' },
+            ].map((item) => (
+              <div key={item.id} className="group relative overflow-hidden rounded-lg">
+                <div className="aspect-w-4 aspect-h-5">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
+                    width={500}
+                    height={600}
+                  />
                 </div>
-                <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                <p className="text-gray-400">{item.description}</p>
+                <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                  <h3 className="text-white text-xl font-medium">{item.title}</h3>
+                </div>
               </div>
             ))}
           </div>
@@ -106,19 +134,21 @@ function GraphicsPage() {
             <span className="w-4 h-8 bg-red-600 mr-4"></span>
             Flayes
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {collections.flayes.map((item) => (
-              <div key={item.id} className="relative group overflow-hidden rounded-lg">
-                <div className="bg-gradient-to-br from-black to-gray-900 h-64 flex items-center justify-center border border-gray-800 group-hover:border-red-600 transition-colors">
-                  <span className="text-4xl font-bold text-red-600 opacity-20 group-hover:opacity-30 transition-opacity">
-                    {item.id}
-                  </span>
+              <div key={item.id} className="group relative overflow-hidden rounded-lg">
+                <div className="aspect-w-4 aspect-h-5">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
+                    width={500}
+                    height={600}
+                  />
                 </div>
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black bg-opacity-70">
-                  <div className="text-center p-6">
-                    <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                    <p className="text-gray-300">{item.description}</p>
-                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                  <h3 className="text-white text-xl font-medium">{item.title}</h3>
+                  <p className="text-gray-300">{item.description}</p>
                 </div>
               </div>
             ))}
