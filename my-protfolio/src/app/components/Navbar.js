@@ -22,9 +22,9 @@ const handleScrollTo = (hash) => {
 }
 
 return (
-    <nav className="bg-gradient-to-r from-red-800 to-black shadow-md px-4 py-3 md:flex md:items-center md:justify-between sticky top-0 z-50">
+    <nav className="bg-gradient-to-r from-red-800 to-black shadow-md px-6 py-4 md:flex md:items-center md:justify-center sticky top-0 z-50">
     <div className="flex justify-between items-center">
-        <Link href="/" className="font-bold text-xl text-white hover:text-yellow-600">Bhanuka Shamen</Link>
+        <Link href="/" className="font-bold text-2xl bg-gradient-to-tr from-yellow-300 to-yellow-600 bg-clip-text text-transparent transition-colors duration-300">Bhanuka Shamen</Link>
         <button
         onClick={() => setMenuOpen(!menuOpen)}
         className="text-3xl md:hidden focus:outline-none text-white"
@@ -33,11 +33,11 @@ return (
         </button>
     </div>
 
-      <div className={`mt-2 md:mt-0 ${menuOpen ? 'block' : 'hidden'} md:flex space-y-2 md:space-y-0 md:space-x-6`}>
-        <Link href="/" className="block text-white hover:text-yellow-600" onClick={() => setMenuOpen(false)}>Home</Link>
+      <div className={`mt-2 md:mt-0 md:ml-8 ${menuOpen ? 'flex' : 'hidden'} md:flex space-y-2 md:space-y-0 md:space-x-8`}>
+        <Link href="/" className="block text-white hover:text-red-600 font-medium text-lg transition-colors duration-300" onClick={() => setMenuOpen(false)}>Home</Link>
         <a 
           href="#about" 
-          className="block text-white hover:text-yellow-600 cursor-pointer"
+          className="block text-white hover:text-red-600 cursor-pointer font-medium text-lg transition-colors duration-300"
           onClick={(e) => {
             e.preventDefault()
             handleScrollTo('about')
@@ -47,7 +47,7 @@ return (
         </a>
         <a 
           href="#project" 
-          className="block text-white hover:text-yellow-600 cursor-pointer"
+          className="block text-white hover:text-red-600 cursor-pointer font-medium text-lg transition-colors duration-300"
           onClick={(e) => {
             e.preventDefault()
             handleScrollTo('project')
@@ -55,7 +55,7 @@ return (
         >
           Projects
         </a>
-        <Link href="#contact" className="block text-white hover:text-yellow-600" onClick={() => setMenuOpen(false)}>
+        <Link href="#contact" className="block text-white hover:text-red-600 font-medium text-lg transition-colors duration-300" onClick={() => setMenuOpen(false)}>
         Contact Me</Link>
       </div>
     </nav>
