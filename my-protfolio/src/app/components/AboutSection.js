@@ -1,8 +1,8 @@
 "use client"; // Essential for Framer Motion in Next.js 13+
 
-import Image from 'next/image';
-import My2 from '../../../public/my2.jpg';
 import { motion } from 'framer-motion';
+import { FaBriefcase, FaGraduationCap, FaHeart, FaCode, FaDesktop, FaPen } from 'react-icons/fa';
+import Image from 'next/image';
 
 export default function AboutSection() {
   // Animation variants for cleaner code
@@ -43,67 +43,131 @@ export default function AboutSection() {
     }
   };
 
+  // List of all icons from public/icons folder
+  const icons = [
+    '/icons/adobe-photoshop.png',
+    '/icons/css-3.png',
+    '/icons/figma.png',
+    '/icons/html-5.png',
+    '/icons/icons8-tailwind-css-48.png',
+    '/icons/illustrator.png',
+    '/icons/js.png',
+    '/icons/php.png',
+    '/icons/programing (1).png',
+    '/icons/programing.png',
+    '/icons/python.png',
+    '/icons/science.png',
+    '/icons/typescript.png'
+  ];
+
   return (
-    <section id='about' className="mt-4 px-4 sm:px-6 md:px-12 lg:px-24 overflow-hidden">
-      {/* Image and Text Section */}
-      <div className="mt-12 flex flex-col md:flex-row items-center gap-10">
-        {/* Image with animation */}
+    <>
+    <section id='about' className="mt-8 min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 md:px-12 lg:px-24 overflow-hidden">
+      {/* New layout: stat cards (red/black theme) + text */}
+      <div className="flex flex-col md:flex-row items-center gap-10">        {/* Stat cards with red/black theme (replaces profile image) */}
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ margin: "-100px 0px -100px 0px", amount: 0.2 }}
           variants={slideInLeft}
-          className="relative w-[250px] h-[250px] sm:w-[300px] sm:h-[300px] md:w-[400px] md:h-[400px] shadow-2xl rounded-2xl overflow-hidden"
+          className="flex-shrink-0 w-full md:w-auto"
         >
-          <Image
-            src={My2}
-            alt="My Profile"
-            fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className="rounded-2xl object-cover hover:scale-105 transition-transform duration-500"
-            priority
-          />
-        </motion.div>
+          {/* Label the stats clearly as professional */}
+          <h1 className="text-4xl text-center font-extrabold bg-gradient-to-tr from-red-600 to-red-900 text-transparent bg-clip-text">Professional Journey</h1>
+          <div className="flex flex-col sm:flex-row gap-4 items-center md:items-start mt-8">
+            <div className="bg-red-800 text-white rounded-2xl p-6 shadow-lg flex flex-col items-center justify-center w-64 h-34">
+              <span className="text-4xl font-extrabold">15+</span>
+              <span className="mt-1 text-sm font-semibold">Projects Completed</span>
+            </div>
+             <div className="bg-black text-white text-center rounded-2xl p-6 shadow-inner flex flex-col items-center justify-center w-64 border-2 border-red-800">
+              <span className="text-4xl font-extrabold">1+</span>
+              <span className="mt-1 text-sm font-semibold">Years — Full-Stack Development</span>
+            </div>
 
-        {/* Text content with animation */}
+            <div className="bg-black text-white text-center rounded-2xl p-6 shadow-inner flex flex-col items-center justify-center w-64 border-2 border-red-800">
+              <span className="text-4xl font-extrabold">2+</span>
+              <span className="mt-1 text-sm font-semibold">Years — Graphic Design with UI/UX</span>
+            </div>
+
+          </div>
+        </motion.div>
+      </div>
+        {/* end of about content */}
+
+      {/* Professional Journey: moved inside #about so both blocks center together */}
+      <div id="professional-journey" className="mt-8 max-w-4xl mx-auto flex flex-col items-center">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ margin: "-100px 0px -100px 0px", amount: 0.2 }}
           variants={slideInRight}
-          className="text-gray-800 dark:text-white max-w-3xl text-justify space-y-4"
+          className="text-gray-800 dark:text-gray-200 w-full"
         >
-          <motion.h2 
+          <motion.h3
             variants={paragraphVariants}
-            className="text-3xl sm:text-4xl font-bold md:text-left text-center mb-6"
+            className="text-2xl font-bold mb-3 text-center"
           >
-            <span className="text-red-800 dark:text-red-600">About</span> me?
-          </motion.h2>
+        
+          </motion.h3>
 
-          <motion.p variants={paragraphVariants} className="text-base sm:text-lg leading-relaxed">
-            I&apos;m a dedicated <strong className="text-bold">Computer Science undergraduate</strong> at <strong>Eastern University, Sri Lanka
-                </strong>, passionate about Full-Stack Development, Software Engineering, and UI/UX Design. I thrive in building 
-            <strong className="text-bold">scalable, high-performance applications</strong> using modern tools and frameworks.
+          <motion.p
+            variants={paragraphVariants}
+            className=" leading-relaxed text-center text-md"
+          >
+            I’m an Intern Software Engineer and Computer Science undergraduate at Eastern University, Sri Lanka, driven by a passion for Full-Stack Development, Software Engineering, and UI/UX Design. I enjoy creating scalable, high-performance applications using modern frameworks and technologies while continuously learning and refining my craft.
           </motion.p>
 
-          <motion.p variants={paragraphVariants} className="text-base sm:text-lg leading-relaxed">
-            Proficient in technologies like <strong className="text-bold">React, Angular, and Express.js</strong>, and fluent in 
-            <strong className="text-bold">JavaScript, TypeScript, Java, HTML, and Python</strong>, I enjoy solving real-world problems through clean, efficient code and innovative solutions.
-          </motion.p>
+          <motion.div
+            variants={slideInLeft}
+            className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-6"
+          >
+            <div className="bg-white dark:bg-gray-900 border rounded-lg p-6 shadow-sm text-center">
+              <FaBriefcase className="text-3xl mb-3 text-red-800 mx-auto" />
+              <h4 className="font-semibold text-lg">Role</h4>
+              <p className="text-sm mt-2">Intern Software Engineer</p>
+            </div>
 
-          <motion.p variants={paragraphVariants} className="text-base sm:text-lg leading-relaxed">
-            As a skilled <strong className="text-bold">UI/UX Designer</strong> with experience in <strong>Figma</strong>, <strong>Adobe Photoshop</strong>, <strong>Adobe Illustrator</strong>, and
-             <strong>Canva</strong>, I bridge functionality with aesthetics designing interfaces that are both intuitive and visually engaging.
-          </motion.p>
+            <div className="bg-white dark:bg-gray-900 border rounded-lg p-6 shadow-sm text-center">
+              <FaGraduationCap className="text-3xl mb-3 text-red-800 mx-auto" />
+              <h4 className="font-semibold text-lg">Education</h4>
+              <p className="text-sm mt-2">Computer Science — Eastern University, Sri Lanka</p>
+            </div>
 
-          <motion.p variants={paragraphVariants} className="text-base sm:text-lg leading-relaxed">
-            I&apos;m constantly exploring new technologies, contributing to team-driven projects, and aiming to make an impact in the tech industry. Whether it&apos;s 
-            <strong className="ttext-bold">backend logic</strong>, 
-            <strong className="text-bold">pixel-perfect UI</strong>, 
-            or <strong className="text-bold">end-to-end deployment</strong>, I bring a strong mix of technical expertise and creativity to every challenge.
-          </motion.p>
+            <div className="bg-white dark:bg-gray-900 border rounded-lg p-6 shadow-sm text-center">
+              <FaHeart className="text-3xl mb-3 text-red-800 mx-auto" />
+              <h4 className="font-semibold text-lg">Interests</h4>
+              <p className="text-sm mt-2">Software Engineering (Full-Stack Development) • Graphic Design • UI/UX Design</p>
+            </div>
+
+            <div className="bg-white dark:bg-gray-900 border rounded-lg p-6 shadow-sm text-center">
+              <FaCode className="text-3xl mb-3 text-red-800 mx-auto" />
+              <h4 className="font-semibold text-lg">Tech Stack</h4>
+              <p className="text-sm mt-2">React, Next.js, Node.js, Tailwind CSS, Angular, Python, PHP-Laravel, TypeScript, Java Script ... </p>
+            </div>
+           
+               <div className="bg-white dark:bg-gray-900 border rounded-lg p-6 shadow-sm text-center">
+              <FaPen className="text-3xl mb-3 text-red-800 mx-auto" />
+              <h4 className="font-semibold text-lg">Design Tools</h4>
+              <p className="text-sm mt-2">Figma, Adobe Photoshop, Canva, Adobe Illustrator</p>
+            </div>
+          </motion.div>
         </motion.div>
       </div>
-    </section>
+
+      {/* Auto-scrolling tech icons */}
+      <div className="mt-12 w-4xl overflow-hidden">
+        <motion.div
+          className="flex space-x-12"
+          animate={{ x: [0, -1200] }}
+          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+          style={{ width: '300%' }}
+        >
+          {icons.concat(icons).map((src, index) => (
+            <Image key={index} src={src} alt="tech icon" width={48} height={48} />
+          ))}
+        </motion.div>
+      </div>
+      </section>
+    </>
   );
 }
