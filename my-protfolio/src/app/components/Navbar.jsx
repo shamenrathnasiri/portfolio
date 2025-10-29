@@ -45,6 +45,19 @@ return (
         >
           About Me
         </a>
+
+       <a 
+          href="#experience" 
+          className="block text-white hover:text-red-600 cursor-pointer font-medium text-lg transition-colors duration-300"
+          onClick={(e) => {
+            e.preventDefault()
+            handleScrollTo('experience')
+          }}
+        >
+         Experience
+        </a>
+
+
         <a 
           href="#project" 
           className="block text-white hover:text-red-600 cursor-pointer font-medium text-lg transition-colors duration-300"
@@ -55,8 +68,11 @@ return (
         >
           Projects
         </a>
+
+        
         <Link href="#contact" className="block text-white hover:text-red-600 font-medium text-lg transition-colors duration-300" onClick={() => setMenuOpen(false)}>
-        Contact Me</Link>
+          Contact Me
+        </Link>
       </div>
     </nav>
   )
