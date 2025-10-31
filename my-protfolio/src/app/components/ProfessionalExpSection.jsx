@@ -14,8 +14,8 @@ export default function ProfessionalExpSection() {
   };
 
   const item = {
-    hidden: { opacity: 0, y: 10 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+    hidden: { opacity: 0, y: 10, scale: 0.9 },
+    visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.5 } }
   };
 
   const experiences = [
@@ -53,12 +53,12 @@ export default function ProfessionalExpSection() {
       <motion.div initial="hidden" whileInView="visible" viewport={{ amount: 0.2 }} variants={container}>
         <motion.h2
           variants={item}
-          className="text-3xl sm:text-4xl font-extrabold text-center mb-6 text-red-700 dark:text-red-300"
+          className="text-4xl sm:text-6xl font-extrabold text-center mb-6 text-red-700 dark:text-red-300"
         >
           Professional Experience
         </motion.h2>
 
-        <div className="max-w-5xl mx-auto grid gap-6">
+        <div className="max-w-6xl mx-auto grid gap-6">
           {experiences.map((exp, idx) => (
             <motion.article
               key={idx}
@@ -67,18 +67,18 @@ export default function ProfessionalExpSection() {
             >
               <div className="flex items-start gap-4">
                 <div className="flex-shrink-0">
-                  <div className="inline-flex items-center justify-center h-12 w-12 rounded-full bg-red-100/80 dark:bg-red-900 text-red-600 dark:text-red-200 shadow-sm">
-                    <FaBriefcase className="text-xl" />
+                  <div className="inline-flex items-center justify-center h-12 w-full rounded-full bg-red-100/80 dark:bg-red-900 text-red-600 dark:text-red-200 shadow-sm">
+                    <FaBriefcase className="text-2xl" />
                   </div>
                 </div>
                 <div className="flex-1">
-                  <div className="flex items-baseline justify-between">
-                    <h3 className="text-lg sm:text-xl font-semibold text-slate-900 dark:text-red-100">{exp.role}</h3>
-                    <span className="text-sm text-slate-500 dark:text-slate-400">{exp.date}</span>
+                  <div className="flex items-baseline justify-between w-full">
+                    <h3 className="text-xl sm:text-3xl font-semibold text-slate-900 dark:text-red-100">{exp.role}</h3>
+                    <span className="text-base text-slate-500 dark:text-slate-400">{exp.date}</span>
                   </div>
-                  <p className="text-sm text-slate-600 dark:text-slate-300 mt-1 italic">{exp.company}</p>
+                  <p className="text-xl text-slate-800 dark:text-slate-300 mt-1 italic">{exp.company}</p>
 
-                  <ul className="mt-3 list-disc list-inside text-sm text-slate-700 dark:text-slate-300 space-y-1">
+                  <ul className="mt-8 list-disc list-inside text-xl text-slate-700 dark:text-slate-300 space-y-1">
                     {exp.bullets.map((b, i) => (
                       <li key={i}>{b}</li>
                     ))}

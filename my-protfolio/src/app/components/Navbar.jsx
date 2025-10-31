@@ -22,22 +22,22 @@ const handleScrollTo = (hash) => {
 }
 
 return (
-    <nav className="bg-gradient-to-r from-red-800 to-black shadow-md px-6 py-4 md:flex md:items-center md:justify-center sticky top-0 z-50">
+    <nav className="bg-gradient-to-r from-red-800 to-black shadow-md px-8 py-6 md:flex md:items-center md:justify-center sticky top-0 z-50">
     <div className="flex justify-between items-center">
-        <Link href="/" className="font-bold text-2xl bg-gradient-to-tr from-yellow-300 to-yellow-600 bg-clip-text text-transparent transition-colors duration-300">Bhanuka Shamen</Link>
+        <Link href="/" className="font-bold text-3xl bg-gradient-to-tr from-yellow-300 to-yellow-600 bg-clip-text text-transparent transition-colors duration-300">Bhanuka Shamen</Link>
         <button
         onClick={() => setMenuOpen(!menuOpen)}
-        className="text-3xl md:hidden focus:outline-none text-white"
+        className="text-4xl md:hidden focus:outline-none text-white"
         >
         ☰
         </button>
     </div>
 
       <div className={`mt-2 md:mt-0 md:ml-8 ${menuOpen ? 'flex' : 'hidden'} md:flex space-y-2 md:space-y-0 md:space-x-8`}>
-        <Link href="/" className="block text-white hover:text-red-600 font-medium text-lg transition-colors duration-300" onClick={() => setMenuOpen(false)}>Home</Link>
+        <Link href="/" className="block text-white hover:text-red-600 font-medium text-xl transition-colors duration-300" onClick={() => setMenuOpen(false)}>Home</Link>
         <a 
           href="#about" 
-          className="block text-white hover:text-red-600 cursor-pointer font-medium text-lg transition-colors duration-300"
+          className="block text-white hover:text-red-600 cursor-pointer font-medium text-xl transition-colors duration-300"
           onClick={(e) => {
             e.preventDefault()
             handleScrollTo('about')
@@ -48,7 +48,7 @@ return (
 
        <a 
           href="#experience" 
-          className="block text-white hover:text-red-600 cursor-pointer font-medium text-lg transition-colors duration-300"
+          className="block text-white hover:text-red-600 cursor-pointer font-medium text-xl transition-colors duration-300"
           onClick={(e) => {
             e.preventDefault()
             handleScrollTo('experience')
@@ -60,7 +60,7 @@ return (
 
         <a 
           href="#project" 
-          className="block text-white hover:text-red-600 cursor-pointer font-medium text-lg transition-colors duration-300"
+          className="block text-white hover:text-red-600 cursor-pointer font-medium text-xl transition-colors duration-300"
           onClick={(e) => {
             e.preventDefault()
             handleScrollTo('project')
@@ -70,7 +70,7 @@ return (
         </a>
 
         
-        <Link href="#contact" className="block text-white hover:text-red-600 font-medium text-lg transition-colors duration-300" onClick={() => setMenuOpen(false)}>
+        <Link href="#contact" className="block text-white hover:text-red-600 font-medium text-xl transition-colors duration-300" onClick={() => setMenuOpen(false)}>
           Contact Me
         </Link>
       </div>
