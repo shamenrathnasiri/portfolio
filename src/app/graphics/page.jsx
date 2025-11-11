@@ -54,7 +54,7 @@ function GraphicsPage() {
           <span>Back to Projects</span>
         </Link>
       </div>
-      {/* Header */}
+      {/* Header1 */}
       <header className="py-8 px-4 md:px-12">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12 sm:mb-16 animate-slide-up">
