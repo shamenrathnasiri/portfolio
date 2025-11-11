@@ -1,7 +1,7 @@
 "use client"; // Essential for Framer Motion in Next.js 13+
 
 import { motion } from 'framer-motion';
-import { FaBriefcase, FaGraduationCap, FaHeart, FaCode, FaDesktop, FaPen } from 'react-icons/fa';
+import { FaBriefcase, FaGraduationCap, FaHeart, FaCode, FaPen, FaUser, FaCalendarAlt, FaEnvelope, FaMapMarkerAlt, FaClock } from 'react-icons/fa';
 import Image from 'next/image';
 
 export default function AboutSection() {
@@ -60,6 +60,18 @@ export default function AboutSection() {
     '/icons/typescript.png'
   ];
 
+  const skillProgress = [
+    { name: 'React', level: 92 },
+    { name: 'Next.js', level: 88 },
+    { name: 'Node.js', level: 84 },
+    { name: 'Tailwind CSS', level: 90 },
+    { name: 'Angular', level: 72 },
+    { name: 'Python', level: 78 },
+    { name: 'PHP & Laravel', level: 74 },
+    { name: 'TypeScript', level: 86 },
+    { name: 'JavaScript', level: 94 }
+  ];
+
   return (
     <>
   <section id='about' className="mt-8 min-h-fit flex flex-col items-center justify-center px-4 sm:px-6 md:px-12 lg:px-24 overflow-hidden">
@@ -95,6 +107,7 @@ export default function AboutSection() {
 
       {/* Professional Journey: moved inside #about so both blocks center together */}
       <div id="professional-journey" className="mt-8 w-full mx-auto flex flex-col items-center">
+     
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -106,6 +119,7 @@ export default function AboutSection() {
             variants={paragraphVariants}
             className="text-2xl md:text-3xl font-bold mb-3 text-center"
           />
+          <h2 className="text-2xl md:text-3xl font-extrabold text-center bg-gradient-to-r from-red-500 to-red-700 text-transparent bg-clip-text mb-4">Who I am</h2>
 
           <motion.p
             variants={paragraphVariants}
@@ -146,6 +160,69 @@ export default function AboutSection() {
               <FaPen className="text-3xl mb-3 text-red-800 mx-auto" />
               <h4 className="font-bold text-xl md:text-2xl">Design Tools</h4>
               <p className="text-base md:text-lg mt-2">Figma, Adobe Photoshop, Canva, Adobe Illustrator</p>
+            </div>
+
+            <div className="bg-white dark:bg-gray-900 border rounded-lg p-6 shadow-sm text-center">
+              <FaUser className="text-3xl mb-3 text-red-800 mx-auto" />
+              <h4 className="font-bold text-xl md:text-2xl">Full Name</h4>
+              <p className="text-base md:text-lg mt-2">H.K.Bhanuka Shamen Rathnasiri</p>
+            </div>
+
+            <div className="bg-white dark:bg-gray-900 border rounded-lg p-6 shadow-sm text-center">
+              <FaCalendarAlt className="text-3xl mb-3 text-red-800 mx-auto" />
+              <h4 className="font-bold text-xl md:text-2xl">Birthday</h4>
+              <p className="text-base md:text-lg mt-2">July 20, 2000</p>
+            </div>
+
+            <div className="bg-white dark:bg-gray-900 border rounded-lg p-6 shadow-sm text-center">
+              <FaEnvelope className="text-3xl mb-3 text-red-800 mx-auto" />
+              <h4 className="font-bold text-xl md:text-2xl">Email</h4>
+              <p className="text-base md:text-lg mt-2">shamenrathnasiri@gmail.com</p>
+            </div>
+
+            <div className="bg-white dark:bg-gray-900 border rounded-lg p-6 shadow-sm text-center">
+              <FaMapMarkerAlt className="text-3xl mb-3 text-red-800 mx-auto" />
+              <h4 className="font-bold text-xl md:text-2xl">Location</h4>
+              <p className="text-base md:text-lg mt-2">Polonnaruwa, Sri Lanka</p>
+            </div>
+
+            <div className="bg-white dark:bg-gray-900 border rounded-lg p-6 shadow-sm text-center">
+              <FaClock className="text-3xl mb-3 text-red-800 mx-auto" />
+              <h4 className="font-bold text-xl md:text-2xl">Availability</h4>
+              <p className="text-base md:text-lg mt-2">FullTime / Freelance</p>
+            </div>
+          </motion.div>
+
+          <motion.div
+            variants={paragraphVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false, amount: 0.25 }}
+            className="mt-10 w-full max-w-4xl mx-auto px-2 sm:px-0"
+          >
+            <div className="flex flex-col items-start gap-1 sm:flex-row sm:items-center sm:justify-between">
+              <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100 sm:text-xl md:text-2xl">Tech Stack Proficiency</h3>
+              <span className="text-[0.65rem] font-medium uppercase tracking-[0.35em] text-red-600 dark:text-red-400 sm:text-xs">Live metrics</span>
+            </div>
+
+            <div className="mt-6 space-y-5">
+              {skillProgress.map((skill) => (
+                <div key={skill.name} className="space-y-2">
+                  <div className="flex flex-wrap items-center justify-between gap-y-1 text-xs font-semibold text-gray-700 dark:text-gray-300 sm:text-sm">
+                    <span>{skill.name}</span>
+                    <span className="text-gray-600 dark:text-gray-400">{skill.level}%</span>
+                  </div>
+                  <div className="h-2.5 w-full overflow-hidden rounded-full bg-gray-200/80 dark:bg-gray-800/60 sm:h-3">
+                    <motion.div
+                      className="h-full rounded-full bg-gradient-to-r from-red-500 via-red-600 to-red-800 shadow-[0_0_12px_rgba(220,38,38,0.35)]"
+                      initial={{ width: 0 }}
+                      whileInView={{ width: `${skill.level}%` }}
+                      viewport={{ once: true, margin: '-40px' }}
+                      transition={{ duration: 1.2, ease: [0.16, 0.77, 0.47, 0.97] }}
+                    />
+                  </div>
+                </div>
+              ))}
             </div>
           </motion.div>
         </motion.div>
