@@ -198,30 +198,40 @@ export default function AboutSection() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: false, amount: 0.25 }}
-            className="mt-10 w-full max-w-4xl mx-auto px-2 sm:px-0"
+            className="mt-10 w-full max-w-5xl mx-auto px-2 sm:px-0"
           >
-            <div className="flex flex-col items-start gap-1 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex flex-col items-start gap-1 sm:flex-row sm:items-center sm:justify-between mb-8">
               <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100 sm:text-xl md:text-2xl">Tech Stack Proficiency</h3>
               <span className="text-[0.65rem] font-medium uppercase tracking-[0.35em] text-red-600 dark:text-red-400 sm:text-xs">Live metrics</span>
             </div>
 
-            <div className="mt-6 space-y-5">
-              {skillProgress.map((skill) => (
-                <div key={skill.name} className="space-y-2">
-                  <div className="flex flex-wrap items-center justify-between gap-y-1 text-xs font-semibold text-gray-700 dark:text-gray-300 sm:text-sm">
-                    <span>{skill.name}</span>
-                    <span className="text-gray-600 dark:text-gray-400">{skill.level}%</span>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {skillProgress.map((skill, index) => (
+                <motion.div
+                  key={skill.name}
+                  className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                >
+                  <div className="flex items-center justify-between mb-4">
+                    <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-200">{skill.name}</h4>
+                    <span className="text-sm font-bold text-red-600 dark:text-red-400">{skill.level}%</span>
                   </div>
-                  <div className="h-2.5 w-full overflow-hidden rounded-full bg-gray-200/80 dark:bg-gray-800/60 sm:h-3">
-                    <motion.div
-                      className="h-full rounded-full bg-gradient-to-r from-red-500 via-red-600 to-red-800 shadow-[0_0_12px_rgba(220,38,38,0.35)]"
-                      initial={{ width: 0 }}
-                      whileInView={{ width: `${skill.level}%` }}
-                      viewport={{ once: true, margin: '-40px' }}
-                      transition={{ duration: 1.2, ease: [0.16, 0.77, 0.47, 0.97] }}
-                    />
+                  <div className="relative">
+                    <div className="h-4 w-full bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                      <motion.div
+                        className="h-full bg-gradient-to-r from-red-500 to-red-700 rounded-full shadow-inner"
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${skill.level}%` }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 1.5, ease: "easeOut", delay: index * 0.1 }}
+                      />
+                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent rounded-full animate-pulse"></div>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </motion.div>
