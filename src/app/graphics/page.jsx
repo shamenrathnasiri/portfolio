@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
 import Image from 'next/image'
-import { FaArrowLeft } from 'react-icons/fa'
+import { FaArrowLeft, FaFacebook, FaExternalLinkAlt } from 'react-icons/fa'
 import Tute1 from '../../../public/(graphics)/Tute1.jpg'
 import Tute2 from '../../../public/(graphics)/Tute2.jpg'
 import Tute3 from '../../../public/(graphics)/Tute3.jpg'
@@ -21,9 +21,9 @@ import Post10 from '../../../public/(graphics)/post10.jpg'
 import Flayer1 from '../../../public/(graphics)/flayer1.jpg'
 import Flayer2 from '../../../public/(graphics)/flayer2.jpg'
 import Flayer3 from '../../../public/(graphics)/flayer3.jpg'
-import post10 from '../../../public/(graphics)/post10.jpg'
-import post11 from '../../../public/(graphics)/post11.jpg'
-import post12 from '../../../public/(graphics)/post12.jpg'
+import Post11 from '../../../public/(graphics)/post11.jpg'
+import Post12 from '../../../public/(graphics)/post12.jpg'
+import Post13 from '../../../public/(graphics)/post13.jpg'
 
 function GraphicsPage() {
   // Sample data for each collection
@@ -68,6 +68,34 @@ function GraphicsPage() {
           </div>
         </div>
       </header>
+
+          {/* ABC Graphics - Freelancer Facebook Page CTA */}
+          <section className="px-4 md:px-12 -mt-4 mb-6">
+            <div className="max-w-6xl mx-auto">
+              <a
+                href="https://www.facebook.com/profile.php?id=100095599507570"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block rounded-2xl border border-red-600/30 bg-gradient-to-r from-red-950/30 via-black to-black p-5 sm:p-6 shadow-[0_0_0_1px_rgba(220,38,38,0.25)] hover:shadow-[0_0_0_1px_rgba(220,38,38,0.45)] transition-shadow duration-300"
+              >
+                <div className="flex items-center gap-4">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-red-600/20 text-red-500">
+                    <FaFacebook className="h-6 w-6" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-xl sm:text-2xl font-semibold text-white tracking-tight">ABC Graphics</h3>
+                    <p className="mt-1 text-sm sm:text-base text-gray-300 max-w-3xl">
+                      Freelancer Graphic Design studio for social posts, flyers, tute covers, and branding. Click to view the portfolio and send a message on Facebook.
+                    </p>
+                  </div>
+                  <span className="hidden sm:inline-flex items-center gap-2 text-red-400 group-hover:text-red-300 text-sm font-medium">
+                    Visit Page
+                    <FaExternalLinkAlt className="h-3.5 w-3.5" />
+                  </span>
+                </div>
+              </a>
+            </div>
+          </section>
 
       {/* Navigation */}
       <nav className="sticky top-0 bg-black z-10 border-b border-red-600">
@@ -129,8 +157,10 @@ function GraphicsPage() {
               { id: 8, image: Post8, title: 'Social Media Post 8' },
               { id: 9, image: Post9, title: 'Social Media Post 9' },
               { id: 10, image: Post10, title: 'Social Media Post 10' },
-              { id: 12, image: post11, title: 'Social Media Post 12' },
-              { id: 13, image: post12, title: 'Social Media Post 13' },
+              { id: 11, image: Post11, title: 'Social Media Post 11' },
+              { id: 12, image: Post12, title: 'Social Media Post 12' },
+              { id: 13, image: Post13, title: 'Social Media Post 13' },
+
             ].map((item) => (
               <div key={item.id} className="group relative overflow-hidden rounded-lg">
                 <div className="aspect-w-4 aspect-h-5">
