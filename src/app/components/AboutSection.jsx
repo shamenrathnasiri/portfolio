@@ -87,12 +87,12 @@ export default function AboutSection() {
           {/* Label the stats clearly as professional */}
           <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-center font-extrabold bg-gradient-to-tr from-red-600 to-red-900 text-transparent bg-clip-text">Professional Journey</h1>
           <div className="flex w-full flex-col items-center gap-4 mt-6 sm:flex-row sm:items-start sm:justify-center md:mt-8">
-            <div className="bg-red-800 text-white rounded-2xl p-4 sm:p-6 shadow-lg flex flex-col items-center justify-center w-full sm:w-80 min-h-[8rem] sm:min-h-[10rem]">
+            <div className="bg-red-800 text-white rounded-2xl p-4 sm:p-6 shadow-lg flex flex-col items-center justify-center w-full sm:w-80 min-h-[8rem] sm:min-h-[11.3rem]">
               <span className="text-3xl sm:text-4xl md:text-6xl font-extrabold">15+</span>
               <span className="mt-1 text-sm sm:text-base md:text-2xl font-semibold">Projects Completed</span>
             </div>
             <div className="bg-black text-white text-center rounded-2xl p-4 sm:p-6 shadow-inner flex flex-col items-center justify-center w-full sm:w-80 min-h-[8rem] sm:min-h-[10rem] border-2 border-red-800">
-              <span className="text-3xl sm:text-4xl md:text-6xl font-extrabold">1+</span>
+              <span className="text-3xl sm:text-4xl md:text-6xl font-extrabold">2+</span>
               <span className="mt-1 text-sm sm:text-base md:text-2xl font-semibold">Years — Full-Stack Development</span>
             </div>
 
