@@ -1,8 +1,9 @@
 "use client"; // Essential for Framer Motion in Next.js 13+
 
 import { motion } from 'framer-motion';
-import { FaBriefcase, FaGraduationCap, FaHeart, FaCode, FaPen, FaUser, FaCalendarAlt, FaEnvelope, FaMapMarkerAlt, FaClock } from 'react-icons/fa';
+import { FaBriefcase, FaGraduationCap, FaHeart, FaCode, FaPen, FaUser, FaCalendarAlt, FaEnvelope, FaMapMarkerAlt, FaClock, FaDownload } from 'react-icons/fa';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function AboutSection() {
   // Animation variants for cleaner code
@@ -127,6 +128,29 @@ export default function AboutSection() {
           >
             I’m an Intern Software Engineer and Computer Science undergraduate at Eastern University, Sri Lanka, driven by a passion for Full-Stack Development, Software Engineering, and UI/UX Design. I enjoy creating scalable, high-performance applications using modern frameworks and technologies while continuously learning and refining my craft.
           </motion.p>
+
+          <motion.div
+            variants={paragraphVariants}
+            className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row"
+          >
+            <Link
+              href="/CV/bhanula-full-stack.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              download
+              className="inline-flex items-center gap-2 rounded-full bg-red-700 px-6 py-3 text-base font-semibold text-white shadow-lg transition hover:bg-red-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-500"
+            >
+              <FaDownload className="text-lg" />
+              Download CV
+            </Link>
+
+            <a
+              href="mailto:shamenrathnasiri@gmail.com"
+              className="inline-flex items-center gap-2 rounded-full border border-gray-300 px-6 py-3 text-base font-semibold text-gray-900 transition hover:border-red-700 hover:text-red-700 dark:border-gray-700 dark:text-gray-100"
+            >
+              Reach Out
+            </a>
+          </motion.div>
 
           <motion.div
             variants={slideInLeft}
