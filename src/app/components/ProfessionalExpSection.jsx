@@ -24,13 +24,13 @@ export default function ProfessionalExpSection() {
       company: 'Cybernetic Technologies Pvt. Ltd., No. 1180, Rajamalwatta Road, Battaramulla, Sri Lanka',
       date: 'August 2025 – Present',
       bullets: [
-        'Contributed to scalable full-stack features using React.js / Next.js (frontend) and Laravel (PHP) backend, ensuring seamless client-server integration.',
-        'Designed and implemented modular, reusable UI components with clean, maintainable code — improving development speed and consistency.',
-        'Worked closely with designers, product managers, and senior engineers in Agile sprints; participated in daily stand-ups, sprint planning, and code reviews.',
-        'Improved application performance and accessibility by optimizing rendering logic, reducing unnecessary re-renders, and applying SEO/responsive-design best practices.',
-        'Collaborated using Git / GitHub and supported CI/CD pipelines for continuous integration and deployment.',
-        'Integrated RESTful APIs and handled data management between frontend and backend using Axios and Laravel controllers.',
-        'Enhanced understanding of state management (Redux / Context API) and relational databases (MySQL / PostgreSQL) while adapting to real-world engineering workflows.'
+        'Built scalable full-stack features using React.js, Next.js, and Angular on the frontend, combined with Laravel, Node.js, and Python Flask on the backend - ensuring smooth client–server communication and high performance.',
+        'Designed and developed modular, reusable UI components with clean and maintainable code, improving consistency and speeding up development across projects.',
+        'Collaborated in Agile environments, working closely with designers, product owners, and senior developers through daily stand-ups, sprint planning, and code reviews.',
+        'Optimized application performance and UX by improving rendering logic, reducing unnecessary re-renders, and applying best practices for SEO, accessibility, and responsive design.',
+        'Worked with Git/GitHub for version control and contributed to CI/CD pipelines to support continuous integration and deployment.',
+        'Integrated RESTful APIs and handled full data workflows between frontend and backend using Axios, Fetch API, Laravel controllers, Express routes, and Flask endpoints.',
+        'Strengthened knowledge of state management (Redux, Context API, Angular Services) and databases such as MySQL and MongoDB while working on real-world engineering tasks.'
       ]
     },
     {

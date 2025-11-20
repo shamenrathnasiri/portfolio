@@ -8,7 +8,6 @@ import { motion } from "framer-motion";
 export default function HomeSection() {
   const rightRef = useRef(null);
   const circleRefs = useRef([]);
-  const bubbleRefs = useRef([]);
   const targets = useRef([
     { x: 0, y: 0 },
     { x: 0, y: 0 },
@@ -19,8 +18,6 @@ export default function HomeSection() {
     { x: 0, y: 0 },
     { x: 0, y: 0 },
   ]);
-  const bubblePositions = useRef(Array(10).fill().map(() => ({ x: 0, y: 0, scale: 1 })));
-  const speeds = useRef([1, 1.5, 0.8, 2, 1.2, 0.6, 1.8, 0.9, 2.5, 1.3]);
   const rafRef = useRef(null);
 
   const containerVariants = {
@@ -41,16 +38,6 @@ export default function HomeSection() {
   useEffect(() => {
     let mounted = true;
 
-    const centerX = window.innerWidth / 2;
-    const centerY = window.innerHeight / 2;
-
-    // Initialize bubble positions for horizontal movement
-    for (let i = 0; i < 10; i++) {
-      bubblePositions.current[i].x = -100 - i * 20;
-      bubblePositions.current[i].y = centerY + (i - 5) * 30;
-      bubblePositions.current[i].scale = 0.6 + (i % 4) * 0.2;
-    }
-
     const lerp = (a, b, t) => a + (b - a) * t;
 
     function animate() {
@@ -61,17 +48,6 @@ export default function HomeSection() {
         const el = circleRefs.current[i];
         if (el) {
           el.style.transform = `translate3d(${positions.current[i].x}px, ${positions.current[i].y}px, 0)`;
-        }
-      }
-      // Update bubble positions moving across the screen
-      for (let i = 0; i < 10; i++) {
-        bubblePositions.current[i].x += speeds.current[i];
-        if (bubblePositions.current[i].x > window.innerWidth + 100) {
-          bubblePositions.current[i].x = -100;
-        }
-        const el = bubbleRefs.current[i];
-        if (el) {
-          el.style.transform = `translate3d(${bubblePositions.current[i].x}px, ${bubblePositions.current[i].y}px, 0) scale(${bubblePositions.current[i].scale})`;
         }
       }
       rafRef.current = requestAnimationFrame(animate);
@@ -112,6 +88,39 @@ export default function HomeSection() {
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
           }
+
+          @keyframes dotDrift {
+            0% { transform: translate3d(0, 0, 0); }
+            50% { transform: translate3d(30px, -20px, 0); }
+            100% { transform: translate3d(0, 0, 0); }
+          }
+
+          @keyframes dotDriftReverse {
+            0% { transform: translate3d(0, 0, 0); }
+            50% { transform: translate3d(-25px, 15px, 0); }
+            100% { transform: translate3d(0, 0, 0); }
+          }
+
+          .home-dots {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.18) 1px, transparent 1px);
+            background-size: 28px 28px;
+            opacity: 0.35;
+            mix-blend-mode: screen;
+            animation: dotDrift 16s ease-in-out infinite;
+          }
+
+          .home-dots::after {
+            content: "";
+            position: absolute;
+            inset: -20%;
+            background-image: radial-gradient(rgba(248, 113, 113, 0.25) 1px, transparent 1px);
+            background-size: 36px 36px;
+            opacity: 0.25;
+            animation: dotDriftReverse 22s ease-in-out infinite;
+          }
         `
       }} />
       <section
@@ -125,24 +134,7 @@ export default function HomeSection() {
           animation: 'gradientShift 10s ease infinite'
         }}
       >
-        {/* Background bubble animations */}
-        {Array(10).fill().map((_, i) => (
-          <div
-            key={i}
-            ref={el => (bubbleRefs.current[i] = el)}
-            className={`absolute rounded-full bg-white/10 backdrop-blur-sm transition-all duration-1000 ease-out pointer-events-none ${
-              i % 2 === 0 ? 'shadow-lg' : 'shadow-xl'
-            }`}
-            style={{
-              width: [30, 50, 40, 60, 35, 55, 45, 65, 25, 70][i],
-              height: [30, 50, 40, 60, 35, 55, 45, 65, 25, 70][i],
-              left: 0,
-              top: 0,
-              zIndex: -1,
-              transform: 'translate3d(0px, 0px, 0) scale(1)'
-            }}
-          />
-        ))}
+        <div className="home-dots" aria-hidden="true" />
 
         <div className="flex flex-col items-center gap-4 text-center">
   
