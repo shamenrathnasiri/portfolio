@@ -105,6 +105,47 @@
   animation: fade-in 0.8s ease-out forwards;
 }
 
+@keyframes fade-up-fast {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up-fast {
+  animation: fade-up-fast 0.45s ease-out forwards;
+}
+
+@keyframes grow-x-fast {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+.animate-grow-x-fast {
+  animation: grow-x-fast 0.6s ease-out forwards;
+}
+
+@keyframes marquee-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee-left {
+  animation: marquee-left 24s linear infinite;
+}
+
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
