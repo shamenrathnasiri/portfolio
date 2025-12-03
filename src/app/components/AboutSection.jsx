@@ -121,7 +121,7 @@ export default function AboutSection() {
 
           <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row animate-fade-up-fast">
             <Link
-              href="/CV/bhanula-full-stack.pdf"
+              href="/CV/bhanukas-cv.pdf"
               target="_blank"
               rel="noopener noreferrer"
               download
