@@ -2,139 +2,120 @@
 
 "use client";
 
-import React, { useRef, useEffect } from "react";
-import { motion } from "framer-motion";
+import React from "react";
 
 export default function HomeSection() {
-  const rightRef = useRef(null);
-  const circleRefs = useRef([]);
-  const targets = useRef([
-    { x: 0, y: 0 },
-    { x: 0, y: 0 },
-    { x: 0, y: 0 },
-  ]);
-  const positions = useRef([
-    { x: 0, y: 0 },
-    { x: 0, y: 0 },
-    { x: 0, y: 0 },
-  ]);
-  const rafRef = useRef(null);
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.3,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-  };
-
-  useEffect(() => {
-    let mounted = true;
-
-    const lerp = (a, b, t) => a + (b - a) * t;
-
-    function animate() {
-      if (!mounted) return;
-      for (let i = 0; i < 3; i++) {
-        positions.current[i].x = lerp(positions.current[i].x, targets.current[i].x, 0.12);
-        positions.current[i].y = lerp(positions.current[i].y, targets.current[i].y, 0.12);
-        const el = circleRefs.current[i];
-        if (el) {
-          el.style.transform = `translate3d(${positions.current[i].x}px, ${positions.current[i].y}px, 0)`;
-        }
-      }
-      rafRef.current = requestAnimationFrame(animate);
-    }
-
-    rafRef.current = requestAnimationFrame(animate);
-
-    return () => {
-      mounted = false;
-      if (rafRef.current) cancelAnimationFrame(rafRef.current);
-    };
-  }, []);
-
-  const handleMouseMove = (e) => {
-    const panel = rightRef.current;
-    if (!panel) return;
-    const rect = panel.getBoundingClientRect();
-    // Get normalized -0.5..0.5
-    const nx = (e.clientX - rect.left) / rect.width - 0.5;
-    const ny = (e.clientY - rect.top) / rect.height - 0.5;
-
-    // Set different multipliers for parallax feel
-    targets.current[0].x = nx * 28; targets.current[0].y = ny * 18;
-    targets.current[1].x = nx * 48; targets.current[1].y = ny * 32;
-    targets.current[2].x = nx * -36; targets.current[2].y = ny * 24;
-  };
-
-  const handleMouseLeave = () => {
-    targets.current.forEach(t => { t.x = 0; t.y = 0; });
-  };
+  const particles = [
+    { top: "12%", left: "10%", size: "text-xs", opacity: 0.45, dur: 10, delay: 0 },
+    { top: "22%", left: "72%", size: "text-sm", opacity: 0.35, dur: 12, delay: 1.5 },
+    { top: "48%", left: "18%", size: "text-xs", opacity: 0.28, dur: 14, delay: 0.6 },
+    { top: "62%", left: "78%", size: "text-sm", opacity: 0.3, dur: 11, delay: 2.2 },
+    { top: "78%", left: "40%", size: "text-xs", opacity: 0.22, dur: 16, delay: 1.2 },
+  ];
 
   return (
     <>
       <style dangerouslySetInnerHTML={{
         __html: `
-          @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+          @keyframes techGridMove {
+            0% { background-position: 0px 0px, 0px 0px; }
+            100% { background-position: 160px 120px, -120px 90px; }
           }
 
-          @keyframes dotDrift {
-            0% { transform: translate3d(0, 0, 0); }
-            50% { transform: translate3d(30px, -20px, 0); }
-            100% { transform: translate3d(0, 0, 0); }
+          @keyframes techScan {
+            0% { transform: translate3d(0, -120%, 0); opacity: 0; }
+            10% { opacity: 1; }
+            60% { opacity: 0.6; }
+            100% { transform: translate3d(0, 120%, 0); opacity: 0; }
           }
 
-          @keyframes dotDriftReverse {
-            0% { transform: translate3d(0, 0, 0); }
-            50% { transform: translate3d(-25px, 15px, 0); }
-            100% { transform: translate3d(0, 0, 0); }
+          @keyframes techFloat {
+            0% { transform: translate3d(0, 0, 0) rotate(0deg); }
+            50% { transform: translate3d(0, -18px, 0) rotate(2deg); }
+            100% { transform: translate3d(0, 0, 0) rotate(0deg); }
           }
 
-          .home-dots {
+          .tech-grid {
             position: absolute;
             inset: 0;
             pointer-events: none;
-            background-image: radial-gradient(rgba(255, 255, 255, 0.18) 1px, transparent 1px);
-            background-size: 28px 28px;
-            opacity: 0.35;
-            mix-blend-mode: screen;
-            animation: dotDrift 16s ease-in-out infinite;
+            opacity: 0.30;
+            background-image:
+              linear-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+            animation: techGridMove 18s linear infinite;
+            mask-image: radial-gradient(circle at 35% 30%, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 75%);
           }
 
-          .home-dots::after {
+          .tech-grid::after {
             content: "";
             position: absolute;
-            inset: -20%;
-            background-image: radial-gradient(rgba(248, 113, 113, 0.25) 1px, transparent 1px);
-            background-size: 36px 36px;
-            opacity: 0.25;
-            animation: dotDriftReverse 22s ease-in-out infinite;
+            inset: 0;
+            opacity: 0.35;
+            background-image:
+              radial-gradient(circle at 20% 25%, rgba(239, 68, 68, 0.18) 0px, rgba(239, 68, 68, 0.18) 1px, transparent 1px),
+              radial-gradient(circle at 70% 55%, rgba(239, 68, 68, 0.16) 0px, rgba(239, 68, 68, 0.16) 1px, transparent 1px),
+              radial-gradient(circle at 45% 80%, rgba(239, 68, 68, 0.14) 0px, rgba(239, 68, 68, 0.14) 1px, transparent 1px);
+            background-size: 140px 140px;
+            mix-blend-mode: screen;
+          }
+
+          .tech-scanline {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background: linear-gradient(to bottom, transparent 0%, rgba(239, 68, 68, 0.18) 50%, transparent 100%);
+            height: 35%;
+            width: 100%;
+            animation: techScan 6.5s linear infinite;
+            mix-blend-mode: screen;
+            filter: blur(0.2px);
+          }
+
+          .tech-particle {
+            position: absolute;
+            pointer-events: none;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            letter-spacing: 0.12em;
+            color: rgba(255, 255, 255, 0.65);
+            text-shadow: 0 0 14px rgba(239, 68, 68, 0.35);
+            animation-name: techFloat;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+          }
+
+          @media (prefers-reduced-motion: reduce) {
+            .tech-grid, .tech-scanline, .tech-particle { animation: none !important; }
           }
         `
       }} />
       <section
         id="home"
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
-        className="w-full min-h-[500px] sm:min-h-[600px] md:min-h-screen flex items-center justify-center px-6 sm:px-10 lg:px-20 py-10 relative"
+        className="w-full min-h-[500px] sm:min-h-[600px] md:min-h-screen flex items-center justify-center px-6 sm:px-10 lg:px-20 py-10 relative overflow-hidden"
         style={{
-          background: 'linear-gradient(45deg, #dc2626, #000000, #dc2626, #000000)',
-          backgroundSize: '400% 400%',
-          animation: 'gradientShift 10s ease infinite'
+          background: "radial-gradient(1200px circle at 20% 20%, rgba(220, 38, 38, 0.35), transparent 55%), radial-gradient(1000px circle at 80% 30%, rgba(255, 255, 255, 0.10), transparent 60%), linear-gradient(180deg, #09090b 0%, #000000 70%)",
         }}
       >
-        <div className="home-dots" aria-hidden="true" />
+        <div className="tech-grid" aria-hidden="true" />
+        <div className="tech-scanline" aria-hidden="true" />
+        {particles.map((p, idx) => (
+          <div
+            // eslint-disable-next-line react/no-array-index-key
+            key={idx}
+            aria-hidden="true"
+            className={`tech-particle ${p.size}`}
+            style={{
+              top: p.top,
+              left: p.left,
+              opacity: p.opacity,
+              animationDuration: `${p.dur}s`,
+              animationDelay: `${p.delay}s`,
+            }}
+          >
+            0101 0010 1100 1010
+          </div>
+        ))}
 
         <div className="flex flex-col items-center gap-4 text-center">
   
@@ -176,30 +157,7 @@ export default function HomeSection() {
             </a>
           </div>
         </div>
-        <div ref={rightRef} className="hidden md:block absolute right-0 top-0 w-1/2 h-64 sm:h-80 lg:h-96">
-          <div
-            ref={el => (circleRefs.current[0] = el)}
-            className="absolute right-12 top-8 w-28 h-28 rounded-full bg-white/12 backdrop-blur-sm shadow-lg pointer-events-none"
-            style={{ transform: 'translate3d(0px, 0px, 0)' }}
-          />
-
-          <div
-            ref={el => (circleRefs.current[1] = el)}
-            className="absolute right-28 top-24 w-40 h-40 rounded-full bg-white/6 shadow-2xl pointer-events-none"
-            style={{ transform: 'translate3d(0px, 0px, 0)' }}
-          />
-
-          <div
-            ref={el => (circleRefs.current[2] = el)}
-            className="absolute right-6 bottom-8 w-20 h-20 rounded-full border border-white/20 bg-transparent pointer-events-none"
-            style={{ transform: 'translate3d(0px, 0px, 0)' }}
-          />
-
-          {/* Optional subtle grid or pattern for depth */}
-          <div className="absolute left-6 top-6 w-32 h-32 bg-gradient-to-tr from-white/3 to-transparent rounded-lg opacity-30 pointer-events-none" />
-        </div>
-      
-    </section>
+      </section>
     </>
   );
 }
