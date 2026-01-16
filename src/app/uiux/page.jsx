@@ -149,17 +149,17 @@ export default function UIUXPortfolio() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+              className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-2 sm:p-4"
               onClick={closeDetail}
             >
               <motion.div
                 layoutId={`card-${selectedId}`}
-                className="bg-gray-900 rounded-xl max-w-6xl w-full max-h-[90vh] overflow-y-auto border border-gray-800"
+                className="bg-gray-900 rounded-xl max-w-6xl w-full max-h-[95vh] sm:max-h-[90vh] overflow-y-auto border border-gray-800 relative"
                 onClick={(e) => e.stopPropagation()}
               >
                 <button 
                   onClick={closeDetail}
-                  className="absolute top-4 right-4 bg-red-500 text-white w-10 h-10 rounded-full flex items-center justify-center z-10 hover:bg-red-600 transition-colors"
+                  className="absolute top-2 right-2 sm:top-4 sm:right-4 bg-red-500 text-white w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center z-10 hover:bg-red-600 transition-colors text-lg sm:text-xl"
                   aria-label="Close modal"
                 >
                   &times;
@@ -190,13 +190,13 @@ function ProjectDetail({ project, direction, onNavigate }) {
   const currentIndex = uiuxProjects.findIndex(p => p.id === project.id);
   
   return (
-    <div className="grid lg:grid-cols-2 gap-0">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
       {/* Left Column - Content */}
       <motion.div
         initial={{ x: direction * 50, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.3 }}
-        className="p-6 sm:p-8 bg-gray-900"
+        className="p-4 sm:p-6 lg:p-8 bg-gray-900 order-2 lg:order-1"
       >
         <div className="mb-6">
           <div className="flex flex-wrap items-center gap-2">
@@ -254,9 +254,9 @@ function ProjectDetail({ project, direction, onNavigate }) {
         initial={{ x: direction * -50, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.3 }}
-        className="bg-gray-800 p-6 sm:p-8"
+        className="bg-gray-800 p-4 sm:p-6 lg:p-8 order-1 lg:order-2"
       >
-        <div className="mb-4 h-64 sm:h-80 relative rounded-lg overflow-hidden bg-gray-900">
+        <div className="mb-4 h-48 sm:h-64 md:h-80 relative rounded-lg overflow-hidden bg-gray-900">
           <Image
             src={project.images[currentImage]}
             alt={`${project.title} - Image ${currentImage + 1}`}

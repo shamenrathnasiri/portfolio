@@ -99,14 +99,14 @@ function GraphicsPage() {
 
       {/* Navigation */}
       <nav className="sticky top-0 bg-black z-10 border-b border-red-600">
-        <div className="container mx-auto px-4 py-4 flex overflow-x-auto space-x-6">
-          <a href="#tute-covers" className="text-red-500 font-medium whitespace-nowrap">
+        <div className="container mx-auto px-4 py-3 sm:py-4 flex overflow-x-auto space-x-4 sm:space-x-6 scrollbar-hide">
+          <a href="#tute-covers" className="text-red-500 font-medium whitespace-nowrap text-sm sm:text-base py-1 min-h-[44px] flex items-center">
             Tute Covers
           </a>
-          <a href="#posts" className="text-white hover:text-red-500 font-medium whitespace-nowrap">
+          <a href="#posts" className="text-white hover:text-red-500 font-medium whitespace-nowrap text-sm sm:text-base py-1 min-h-[44px] flex items-center">
             Posts
           </a>
-          <a href="#flayes" className="text-white hover:text-red-500 font-medium whitespace-nowrap">
+          <a href="#flayes" className="text-white hover:text-red-500 font-medium whitespace-nowrap text-sm sm:text-base py-1 min-h-[44px] flex items-center">
             Flayes
           </a>
         </div>
@@ -114,12 +114,12 @@ function GraphicsPage() {
 
       <div className="container mx-auto px-4 py-12">
         {/* Tute Covers Section */}
-        <section id="tute-covers" className="mb-20">
-          <h2 className="text-3xl font-bold mb-8 flex items-center">
-            <span className="w-4 h-8 bg-red-600 mr-4"></span>
+        <section id="tute-covers" className="mb-12 sm:mb-20">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 flex items-center">
+            <span className="w-3 sm:w-4 h-6 sm:h-8 bg-red-600 mr-3 sm:mr-4"></span>
             Tute Covers
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
             {collections.tuteCovers.map((item) => (
               <div key={item.id} className="group relative overflow-hidden rounded-lg">
                 <div className="aspect-w-4 aspect-h-5">
@@ -140,12 +140,12 @@ function GraphicsPage() {
         </section>
 
         {/* Posts Section */}
-        <section id="posts" className="mb-20">
-          <h2 className="text-3xl font-bold mb-8 flex items-center">
-            <span className="w-4 h-8 bg-red-600 mr-4"></span>
+        <section id="posts" className="mb-12 sm:mb-20">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 flex items-center">
+            <span className="w-3 sm:w-4 h-6 sm:h-8 bg-red-600 mr-3 sm:mr-4"></span>
             Posts
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-6">
             {[
               { id: 1, image: Post1, title: 'Social Media Post 1' },
               { id: 2, image: Post2, title: 'Social Media Post 2' },
@@ -182,11 +182,11 @@ function GraphicsPage() {
 
         {/* Flayes Section */}
         <section id="flayes">
-          <h2 className="text-3xl font-bold mb-8 flex items-center">
-            <span className="w-4 h-8 bg-red-600 mr-4"></span>
+          <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 flex items-center">
+            <span className="w-3 sm:w-4 h-6 sm:h-8 bg-red-600 mr-3 sm:mr-4"></span>
             Flayes
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
             {collections.flayes.map((item) => (
               <div key={item.id} className="group relative overflow-hidden rounded-lg">
                 <div className="aspect-w-4 aspect-h-5">

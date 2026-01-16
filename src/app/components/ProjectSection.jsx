@@ -5,15 +5,15 @@ export default function Page() {
 return (
     <section id="project" className="overflow-hidden">
     <div className="bg-gradient-to-br from-red-900 to-red-950 py-12 px-4 sm:px-6 flex flex-col items-center mt-8">
-        <h2 className="text-white font-bold text-3xl sm:text-4xl mb-10 text-center">My Projects</h2>
+        <h2 className="text-white font-bold text-[28px] sm:text-3xl md:text-4xl mb-10 text-center">My Projects</h2>
 
         <div className="flex flex-col sm:flex-row sm:flex-wrap justify-center items-center gap-6 w-full max-w-6xl">
           {/* Project 1 - Development */}
         <Link href="/development" className="w-full sm:w-[300px] bg-black bg-opacity-20 backdrop-blur-sm border border-red-700 rounded-xl p-6 transition-all duration-500 transform hover:scale-105 hover:bg-opacity-30 hover:shadow-2xl hover:shadow-red-500/20 group animate-fade-in">
             <div className="flex flex-col items-center text-center">
                 <FaCode className="text-red-400 text-6xl mb-4 group-hover:text-red-300 transition-all duration-300 group-hover:animate-bounce" />
-                <h3 className="text-white font-semibold text-xl mb-2">Development</h3>
-                <p className="text-gray-300 text-sm">Building robust web applications with modern technologies</p>
+                <h3 className="text-white font-semibold text-xl sm:text-2xl mb-2">Development</h3>
+                <p className="text-gray-300 text-base sm:text-lg">Building robust web applications with modern technologies</p>
             </div>
         </Link>
 
@@ -21,8 +21,8 @@ return (
         <Link href="/uiux" className="w-full sm:w-[300px] bg-black bg-opacity-20 backdrop-blur-sm border border-red-700 rounded-xl p-6 transition-all duration-500 transform hover:scale-105 hover:bg-opacity-30 hover:shadow-2xl hover:shadow-red-500/20 group animate-fade-in delay-100">
             <div className="flex flex-col items-center text-center">
                 <FaDesktop className="text-red-400 text-6xl mb-4 group-hover:text-red-300 transition-all duration-300 group-hover:animate-pulse" />
-                <h3 className="text-white font-semibold text-xl mb-2">UI/UX Design</h3>
-                <p className="text-gray-300 text-sm">Creating intuitive and engaging user experiences</p>
+                <h3 className="text-white font-semibold text-xl sm:text-2xl mb-2">UI/UX Design</h3>
+                <p className="text-gray-300 text-base sm:text-lg">Creating intuitive and engaging user experiences</p>
             </div>
         </Link>
 
@@ -30,8 +30,8 @@ return (
         <Link href="/graphics" className="w-full sm:w-[300px] bg-black bg-opacity-20 backdrop-blur-sm border border-red-700 rounded-xl p-6 transition-all duration-500 transform hover:scale-105 hover:bg-opacity-30 hover:shadow-2xl hover:shadow-red-500/20 group animate-fade-in delay-200">
             <div className="flex flex-col items-center text-center">
                 <FaPaintBrush className="text-red-400 text-6xl mb-4 group-hover:text-red-300 transition-all duration-300 group-hover:rotate-12" />
-                <h3 className="text-white font-semibold text-xl mb-2">Graphic Design</h3>
-                <p className="text-gray-300 text-sm">Designing visually stunning graphics and branding</p>
+                <h3 className="text-white font-semibold text-xl sm:text-2xl mb-2">Graphic Design</h3>
+                <p className="text-gray-300 text-base sm:text-lg">Designing visually stunning graphics and branding</p>
             </div>
         </Link>
         </div>

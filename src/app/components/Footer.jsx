@@ -7,20 +7,20 @@ const Footer = () => {
         <div className="flex flex-col items-center text-center">
           {/* Copyright text */}
           <div className="mb-6">
-            <p className="text-sm md:text-base">
+            <p className="text-base md:text-lg">
               Created by <span className="text-red-500 font-medium">Bhanuka Shamen</span> © {currentYear}
             </p>
-            <p className="text-xs text-gray-400 mt-1">All rights reserved</p>
+            <p className="text-sm text-gray-400 mt-1">All rights reserved</p>
           </div>
           
           {/* Social links - centered */}
-          <div className="flex justify-center space-x-8">
+          <div className="flex justify-center space-x-6 sm:space-x-8">
             {/* GitHub link */}
             <a 
               href="https://github.com/shamenrathnasiri" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-white hover:text-red-500 transition-colors duration-300"
+              className="text-white hover:text-red-500 transition-colors duration-300 p-2 min-h-[44px] min-w-[44px] flex items-center justify-center"
               aria-label="GitHub"
             >
               <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
@@ -33,7 +33,7 @@ const Footer = () => {
               href="https://www.linkedin.com/in/bhanuka-shamen-859183288/" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-white hover:text-red-500 transition-colors duration-300"
+              className="text-white hover:text-red-500 transition-colors duration-300 p-2 min-h-[44px] min-w-[44px] flex items-center justify-center"
               aria-label="LinkedIn"
             >
               <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">

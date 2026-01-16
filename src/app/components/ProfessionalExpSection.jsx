@@ -53,7 +53,7 @@ export default function ProfessionalExpSection() {
       <motion.div initial="hidden" whileInView="visible" viewport={{ amount: 0.2 }} variants={container}>
         <motion.h2
           variants={item}
-          className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-center mb-4 sm:mb-6 text-red-700 dark:text-red-300"
+          className="text-[28px] sm:text-3xl md:text-4xl font-extrabold text-center mb-4 sm:mb-6 text-red-700 dark:text-red-300"
         >
           Professional Experience
         </motion.h2>
@@ -73,12 +73,12 @@ export default function ProfessionalExpSection() {
                 </div>
                 <div className="flex-1">
                   <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between w-full gap-2 sm:gap-0">
-                    <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-slate-900 dark:text-red-100">{exp.role}</h3>
-                    <span className="text-sm sm:text-base text-slate-500 dark:text-slate-400">{exp.date}</span>
+                    <h3 className="text-xl sm:text-2xl md:text-[28px] font-semibold text-slate-900 dark:text-red-100">{exp.role}</h3>
+                    <span className="text-base sm:text-lg text-slate-500 dark:text-slate-400">{exp.date}</span>
                   </div>
-                  <p className="text-sm sm:text-base md:text-lg text-slate-800 dark:text-slate-300 mt-1 italic">{exp.company}</p>
+                  <p className="text-base sm:text-lg text-slate-800 dark:text-slate-300 mt-1 italic">{exp.company}</p>
 
-                  <ul className="mt-4 sm:mt-6 list-disc list-inside text-sm sm:text-base md:text-lg text-slate-700 dark:text-slate-300 space-y-2">
+                  <ul className="mt-4 sm:mt-6 list-disc list-inside text-base sm:text-lg text-slate-700 dark:text-slate-300 space-y-2">
                     {exp.bullets.map((b, i) => (
                       <li key={i}>{b}</li>
                     ))}
