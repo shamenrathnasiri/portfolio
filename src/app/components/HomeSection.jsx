@@ -119,14 +119,14 @@ export default function HomeSection() {
 
         <div className="flex flex-col items-center gap-3 sm:gap-4 text-center px-2 sm:px-4 max-w-full">
   
-          <p className="mt-3 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight">
+          <p className="mt-3 text-3xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight">
             Hi, I&apos;m Bhanuka Shamen
           </p>
 
-          <p className="mt-2 text-lg sm:text-xl md:text-2xl lg:text-3xl opacity-90 text-white">
+          <p className="mt-2 text-lg sm:text-xl md:text-xl lg:text-2xl opacity-90 text-white">
             Software Engineer · UI/UX Designer · Graphic Designer
           </p>
-          <p className="text-red-200 text-base sm:text-lg md:text-xl leading-relaxed max-w-5xl px-2">Software Engineer Intern and Computer Science undergraduate at Eastern University, Sri Lanka, passionate about Full-Stack Development and UI/UX Design. Skilled in React, Angular, Express.js, and Figma, I build scalable apps with clean code and creative design.</p>
+          <p className="text-red-200 text-base sm:text-lg md:text-lg lg:text-xl leading-relaxed max-w-4xl px-2">Software Engineer Intern and Computer Science undergraduate at Eastern University, Sri Lanka, passionate about Full-Stack Development and UI/UX Design. Skilled in React, Angular, Express.js, and Figma, I build scalable apps with clean code and creative design.</p>
 
           <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mt-6">
             <a
