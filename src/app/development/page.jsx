@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FaArrowLeft, FaGithub } from "react-icons/fa";
+import { FaArrowLeft, FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
 const projects = [
   {
@@ -9,8 +9,20 @@ const projects = [
     description:
       "Designed and developed a comprehensive Patient Management System using React with Tailwind CSS, Flask, and MySQL. Features include full patient lifecycle tracking, history and treatment modules, digital signature approval, real-time chat between doctor and nurse, and role-based access control with a responsive UI.",
     tags: ["React", "Flask", "MySQL", "Tailwind CSS"],
-    githubUrl:
+    frontendGithubUrl:
       "https://github.com/shamenrathnasiri/Inhouse-patient-management-system-for-private-hospitals",
+    backendGithubUrl: "",
+  },
+  {
+    type: "system",
+    title: "Booking Website for hotel",
+    subtitle: "Cabana Haven",
+    description:
+      "Cabana Haven is a full-stack hotel booking platform with a modern React + TypeScript frontend and a secure Laravel 12 REST API backend (PHP 8.2). The system enables users to browse rooms and manage reservations through a fast, responsive UI while the backend handles authentication with Laravel Sanctum, booking CRUD operations, validation, and database management using MySQL for reliable, scalable operations.",
+    tags: ["React","Laravel", "MySQL"],
+    frontendGithubUrl:
+      "https://github.com/shamenrathnasiri/cabana-haven-design",
+    backendGithubUrl: "https://github.com/shamenrathnasiri/cabana-haven-backend",
   },
   {
     type: "system",
@@ -19,7 +31,8 @@ const projects = [
     description:
       "Built a Farm Management System using React, Flask, MySQL, and Tailwind CSS to handle crops, expenses, income, and stock. Implemented CRUD operations, REST APIs, responsive frontend, and modular design for easy scalability.",
     tags: ["React", "Flask", "MySQL", "Tailwind CSS"],
-    githubUrl: "https://github.com/shamenrathnasiri/Farm-Management-System",
+    frontendGithubUrl: "https://github.com/shamenrathnasiri/Farm-Management-System",
+    backendGithubUrl: "",
   },
   {
     type: "system",
@@ -28,38 +41,33 @@ const projects = [
     description:
       "Developed a full-featured inventory and order management platform with Angular, ExpressJS, and MongoDB. Features include product categorization, live stock tracking, order handling, user authentication, and secure API integration.",
     tags: ["Angular", "ExpressJS", "MongoDB"],
-    githubUrl:
+    frontendGithubUrl:
       "https://github.com/shamenrathnasiri/Inventory-Order-Management-System",
+    backendGithubUrl: "",
   },
   {
     type: "system",
-    title: "Note App",
-    subtitle: "Note Master",
+    title: "Web Page for Graphic Design Freelancer",
+    subtitle: "ABC Graphics",
     description:
-      "Created a full-stack note-taking application with Angular, Flask, and MySQL. Allows users to create, edit, and manage notes with authentication, clean UI, and full CRUD features.",
-    tags: ["Angular", "Flask", "MySQL"],
-    githubUrl: "https://github.com/shamenrathnasiri/Note-Master",
+      "ABC Beyond Creative is a modern creative agency and portfolio website built with Vite, React, and TypeScript to showcase design and digital services in a fast, elegant single-page experience. It features smooth client-side routing, dynamic portfolio galleries powered by Vite’s import.meta.glob, editable service and project descriptions stored in localStorage, and a polished UI using utility-first styling and reusable components. Optimized for static deployment, the platform provides a scalable, professional foundation for creatives and agencies to present their work with clarity and performance.",
+    tags: ["React"],
+    frontendGithubUrl: "https://github.com/shamenrathnasiri/Note-Master",
+    backendGithubUrl: "",
+    websiteUrl: "https://www.abcgraphics.lk",
   },
-    {
+  {
     type: "system",
     title: "API for Expense Tracker",
     subtitle: "Expense Tracker",
     description:
       "API-expense-tracker — a RESTful API for tracking expenses and incomes with a clean, extensible design. Implemented CRUD endpoints, validation, authentication, and persistence so it’s easy to integrate with web or mobile frontends.",
     tags: ["Node.JS", "Prisma", "MySQL"],
-    githubUrl:
+    frontendGithubUrl: "",
+    backendGithubUrl:
       "https://github.com/shamenrathnasiri/API-expense-tracker",
   },
-      {
-    type: "system",
-    title: "Train Ticket Booking System",
-    subtitle: "Train Ticket Booking",
-    description:
-      "Developed a comprehensive train ticket booking system with a user-friendly interface, real-time seat availability, and secure payment integration.",
-    tags: ["NextJS", "MySQL"],
-    githubUrl:
-      "https://github.com/shamenrathnasiri/Train-ticket-booking-system",
-  },
+
   {
     type: "web",
     title: "Hotel Website",
@@ -67,7 +75,8 @@ const projects = [
     description:
       "Designed and developed a responsive hotel website using React and Tailwind CSS. Includes room showcase, booking inquiry form, photo gallery, and location integration.",
     tags: ["React", "Tailwind CSS"],
-    githubUrl: "https://github.com/shamenrathnasiri/hotel-website",
+    frontendGithubUrl: "https://github.com/shamenrathnasiri/hotel-website",
+    backendGithubUrl: "",
   },
   {
     type: "web",
@@ -76,7 +85,8 @@ const projects = [
     description:
       "Built an engaging pizza shop website with React and Tailwind CSS, featuring a product catalog, responsive layout, and interactive animations for an appealing user experience.",
     tags: ["React", "Tailwind CSS"],
-    githubUrl: "https://github.com/shamenrathnasiri/Pizza-shop-website",
+    frontendGithubUrl: "https://github.com/shamenrathnasiri/Pizza-shop-website",
+    backendGithubUrl: "",
   },
   {
     type: "web",
@@ -85,7 +95,8 @@ const projects = [
     description:
       "Created a modern, minimal coffee shop landing page using Figma. Included interactive menus, contact section, and branding-focused visuals.",
     tags: ["React", "Tailwind CSS", "MySQL", "Flask"],
-    githubUrl: "https://github.com/shamenrathnasiri/Cafe-shop-website",
+    frontendGithubUrl: "https://github.com/shamenrathnasiri/Cafe-shop-website",
+    backendGithubUrl: "",
   },
   {
     type: "web",
@@ -94,7 +105,8 @@ const projects = [
     description:
       "Developed my personal portfolio using NextJS and Tailwind CSS to showcase projects, skills, and contact form. Deployed with Vercel.",
     tags: ["NextJs", "Tailwind CSS"],
-    githubUrl: "https://github.com/shamenrathnasiri/protfolio",
+    frontendGithubUrl: "https://github.com/shamenrathnasiri/protfolio",
+    backendGithubUrl: "",
   },
   // Beginner Projects
   {
@@ -104,7 +116,8 @@ const projects = [
     description:
       "A beginner-friendly calculator application built with Java that performs basic arithmetic operations like addition, subtraction, multiplication, and division with a clean interface.",
     tags: ["Java"],
-    githubUrl: "https://github.com/shamenrathnasiri/simple-calculator",
+    frontendGithubUrl: "https://github.com/shamenrathnasiri/simple-calculator",
+    backendGithubUrl: "",
   },
   {
     type: "beginner",
@@ -113,7 +126,8 @@ const projects = [
     description:
       "A responsive sign-in page with form validation, built using Java. Includes username and password fields with basic validation and a remember me checkbox.",
     tags: ["Java"],
-    githubUrl: "https://github.com/shamenrathnasiri/sign-in-sign-up-page",
+    frontendGithubUrl: "https://github.com/shamenrathnasiri/sign-in-sign-up-page",
+    backendGithubUrl: "",
   },
   {
     type: "beginner",
@@ -122,7 +136,8 @@ const projects = [
     description:
       "Create a TO-DO app api using Flask and test with Postman.",
     tags: ["Flask","Postman"],
-    githubUrl: "https://github.com/shamenrathnasiri/To_Do-App",
+    frontendGithubUrl: "",
+    backendGithubUrl: "https://github.com/shamenrathnasiri/To_Do-App",
   },
 ];
 
@@ -206,6 +221,13 @@ export default function DevelopmentPage() {
 }
 
 function ProjectCard({ project, index }) {
+  const frontendUrl = project.frontendGithubUrl?.trim();
+  const backendUrl = project.backendGithubUrl?.trim();
+  const websiteUrl = project.websiteUrl?.trim();
+  const hasFrontend = Boolean(frontendUrl);
+  const hasBackend = Boolean(backendUrl);
+  const hasWebsite = Boolean(websiteUrl);
+
   return (
     <div 
       className="bg-gray-800 rounded-lg sm:rounded-xl shadow-lg overflow-hidden transition-all duration-500 ease-in-out hover:scale-105 hover:shadow-2xl hover:shadow-red-500/50 border border-gray-700 hover:border-red-500/60 flex flex-col h-full animate-slide-up"
@@ -240,15 +262,45 @@ function ProjectCard({ project, index }) {
         </div>
       </div>
       <div className="bg-gray-900 px-4 py-3 sm:px-6 sm:py-4 border-t border-gray-700 flex justify-between items-center hover:bg-red-900/20 transition-colors duration-300">
-        <Link
-          href={project.githubUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-1 sm:gap-2 text-white hover:text-red-400 transition-all duration-300 group hover:bg-red-600 hover:px-3 hover:py-1 hover:rounded-md"
-        >
-          <FaGithub className="w-4 h-4 sm:w-5 sm:h-5 group-hover:scale-110 transition-transform duration-300" />
-          <span className="group-hover:underline text-xs sm:text-sm">View Code</span>
-        </Link>
+        <div className="flex items-center gap-2">
+          {hasWebsite && (
+            <Link
+              href={websiteUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 sm:gap-2 text-white hover:text-red-400 transition-all duration-300 group hover:bg-red-600 hover:px-3 hover:py-1 hover:rounded-md"
+            >
+              <FaExternalLinkAlt className="w-4 h-4 sm:w-5 sm:h-5 group-hover:scale-110 transition-transform duration-300" />
+              <span className="group-hover:underline text-xs sm:text-sm">Live</span>
+            </Link>
+          )}
+          {hasFrontend && (
+            <Link
+              href={frontendUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 sm:gap-2 text-white hover:text-red-400 transition-all duration-300 group hover:bg-red-600 hover:px-3 hover:py-1 hover:rounded-md"
+            >
+              <FaGithub className="w-4 h-4 sm:w-5 sm:h-5 group-hover:scale-110 transition-transform duration-300" />
+              <span className="group-hover:underline text-xs sm:text-sm">
+                {hasBackend ? "Frontend" : "View Code"}
+              </span>
+            </Link>
+          )}
+          {hasBackend && (
+            <Link
+              href={backendUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 sm:gap-2 text-white hover:text-red-400 transition-all duration-300 group hover:bg-red-600 hover:px-3 hover:py-1 hover:rounded-md"
+            >
+              <FaGithub className="w-4 h-4 sm:w-5 sm:h-5 group-hover:scale-110 transition-transform duration-300" />
+              <span className="group-hover:underline text-xs sm:text-sm">
+                {hasFrontend ? "Backend" : "View Code"}
+              </span>
+            </Link>
+          )}
+        </div>
         <span className="text-xs text-red-400 font-medium">
           {project.type === "system" ? "Full-stack" : project.type === "web" ? "Frontend" : "Beginner"}
         </span>
