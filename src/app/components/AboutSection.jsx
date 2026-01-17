@@ -5,7 +5,7 @@ import { FaBriefcase, FaGraduationCap, FaCode, FaDownload, FaEnvelope, FaMapMark
 import { SiNextdotjs, SiTailwindcss, SiTypescript, SiJavascript } from 'react-icons/si';
 import { HiLightningBolt, HiChip, HiColorSwatch } from 'react-icons/hi';
 import Image from 'next/image';
-import Link from 'next/link';
+ 
 
 const ICONS = [
   '/icons/adobe-photoshop.png',
@@ -175,16 +175,14 @@ export default function AboutSection() {
 
                   {/* CTA Buttons */}
                   <div className="space-y-3">
-                    <Link
-                      href="/CV/bhanukas-cv.pdf"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      download
+                    <a
+                      href="/CV/H.K.Bhanuka-Shamen-Rathnasiri-.pdf"
+                      download="H.K.Bhanuka-Shamen-Rathnasiri-CV.pdf"
                       className="flex items-center justify-center gap-2 w-full py-3 bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 text-white font-semibold rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-red-500/25"
                     >
                       <FaDownload className="w-4 h-4" />
                       Download Resume
-                    </Link>
+                    </a>
                     <a
                       href="mailto:shamenrathnasiri@gmail.com"
                       className="flex items-center justify-center gap-2 w-full py-3 bg-slate-800 hover:bg-slate-700 text-slate-300 font-medium rounded-xl border border-slate-700 transition-all duration-300"
