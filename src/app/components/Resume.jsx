@@ -41,6 +41,20 @@ export default function ResumeSection() {
         'Integrated RESTful APIs using Axios, Fetch API, Laravel controllers, Express routes, and Flask endpoints.',
         'Strengthened knowledge of state management (Redux, Context API) and databases (MySQL, MongoDB).'
       ]
+    },
+     {
+      role: ' Bank Assistent (Trainee)',
+      company: 'Regional Development Bank (Manampitiya Branch).',
+      location: 'Manampitiya, Sri Lanka',
+      date: '01st of August 2021 – 31th of January 2022',
+      type: 'Full-time',
+      bullets: [
+        'Assisted in daily banking operations including customer service, account handling, and transaction processing.',
+        'Supported staff with opening new customer accounts and verifying required documentation.',
+        'Handled cash deposits, withdrawals, and basic teller activities under supervision.',
+        'Maintained accurate records and updated customer information in the banking system.',
+        'Gained hands-on experience with core banking software and office automation tools.'
+      ]
     }
   ];
 

@@ -3,8 +3,8 @@ import { FaCode, FaPaintBrush, FaDesktop } from 'react-icons/fa';
 
 export default function Page() {
 return (
-    <section id="project" className="overflow-hidden">
-    <div className="bg-gradient-to-br from-red-900 to-red-950 py-12 px-4 sm:px-6 flex flex-col items-center mt-8">
+    <section id="project" className="overflow-hidden bg-gradient-to-br from-red-900 to-red-950 py-12">
+    <div className="px-4 sm:px-6 flex flex-col items-center">
         <h2 className="text-white font-bold text-[28px] sm:text-3xl md:text-4xl mb-10 text-center">My Projects</h2>
 
         <div className="flex flex-col sm:flex-row sm:flex-wrap justify-center items-center gap-6 w-full max-w-6xl">
