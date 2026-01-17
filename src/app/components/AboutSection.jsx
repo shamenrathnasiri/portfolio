@@ -140,8 +140,15 @@ export default function AboutSection() {
                   <div className="flex flex-col items-center text-center mb-6">
                     <div className="relative mb-5">
                       <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-gradient-to-br from-red-500 to-rose-500 p-0.5 rotate-3 hover:rotate-0 transition-transform duration-300">
-                        <div className="w-full h-full rounded-2xl bg-slate-900 flex items-center justify-center">
-                          <span className="text-4xl font-bold bg-gradient-to-br from-red-400 to-rose-400 bg-clip-text text-transparent">B</span>
+                        <div className="w-full h-full rounded-2xl bg-slate-900 flex items-center justify-center overflow-hidden">
+                          <Image
+                            src="/My.jpg"
+                            alt="Profile photo"
+                            width={140}
+                            height={140}
+                            className="w-full h-full object-cover"
+                            priority
+                          />
                         </div>
                       </div>
                       <span className="absolute -bottom-1 -right-1 w-5 h-5 bg-green-500 border-[3px] border-slate-900 rounded-full" />
