@@ -69,31 +69,42 @@ function GraphicsPage() {
         </div>
       </header>
 
-          {/* ABC Graphics - Freelancer Facebook Page CTA */}
+          {/* ABC Graphics - Links */}
           <section className="px-4 md:px-12 -mt-4 mb-6">
             <div className="max-w-6xl mx-auto">
-              <a
-                href="https://www.facebook.com/profile.php?id=100095599507570"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group block rounded-2xl border border-red-600/30 bg-gradient-to-r from-red-950/30 via-black to-black p-5 sm:p-6 shadow-[0_0_0_1px_rgba(220,38,38,0.25)] hover:shadow-[0_0_0_1px_rgba(220,38,38,0.45)] transition-shadow duration-300"
-              >
-                <div className="flex items-center gap-4">
+              <div className="rounded-2xl border border-red-600/30 bg-gradient-to-r from-red-950/30 via-black to-black p-5 sm:p-6 shadow-[0_0_0_1px_rgba(220,38,38,0.25)]">
+                <div className="flex flex-col sm:flex-row sm:items-center gap-4">
                   <div className="flex h-12 w-12 items-center justify-center rounded-full bg-red-600/20 text-red-500">
                     <FaFacebook className="h-6 w-6" />
                   </div>
                   <div className="flex-1">
                     <h3 className="text-xl sm:text-2xl font-semibold text-white tracking-tight">ABC Graphics</h3>
                     <p className="mt-1 text-sm sm:text-base text-gray-300 max-w-3xl">
-                      Freelancer Graphic Design studio for social posts, flyers, tute covers, and branding. Click to view the portfolio and send a message on Facebook.
+                      Freelancer Graphic Design studio for social posts, flyers, tute covers, and branding.
                     </p>
+                    <div className="mt-4 flex flex-wrap gap-3">
+                      <a
+                        href="https://www.abcgraphics.lk"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 rounded-full border border-red-600/40 bg-black/40 px-4 py-2 text-sm font-medium text-white hover:border-red-500/70 transition-colors"
+                      >
+                        Website
+                        <FaExternalLinkAlt className="h-3.5 w-3.5" />
+                      </a>
+                      <a
+                        href="https://www.facebook.com/profile.php?id=100095599507570"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 rounded-full border border-red-600/40 bg-black/40 px-4 py-2 text-sm font-medium text-white hover:border-red-500/70 transition-colors"
+                      >
+                        Facebook
+                        <FaExternalLinkAlt className="h-3.5 w-3.5" />
+                      </a>
+                    </div>
                   </div>
-                  <span className="hidden sm:inline-flex items-center gap-2 text-red-400 group-hover:text-red-300 text-sm font-medium">
-                    Visit Page
-                    <FaExternalLinkAlt className="h-3.5 w-3.5" />
-                  </span>
                 </div>
-              </a>
+              </div>
             </div>
           </section>
 

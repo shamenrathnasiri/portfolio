@@ -80,10 +80,10 @@ export default function Navbar() {
             className="w-full rounded-lg px-4 py-3 text-base font-medium text-white transition hover:text-red-400 hover:bg-white/5 md:w-auto md:rounded-none md:px-0 md:py-0 md:hover:bg-transparent"
             onClick={(event) => {
               event.preventDefault()
-              handleScrollTo('experience')
+              handleScrollTo('resume')
             }}
           >
-            Experience
+            Resume
           </a>
           <a
             href="#project"
