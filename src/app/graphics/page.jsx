@@ -1,7 +1,10 @@
+"use client"
+
 import Link from 'next/link'
 import React from 'react'
 import Image from 'next/image'
-import { FaArrowLeft, FaFacebook, FaExternalLinkAlt } from 'react-icons/fa'
+import { motion } from 'framer-motion'
+import { FaArrowLeft, FaFacebook, FaExternalLinkAlt, FaPalette, FaImages } from 'react-icons/fa'
 import Tute1 from '../../../public/(graphics)/Tute1.jpg'
 import Tute2 from '../../../public/(graphics)/Tute2.jpg'
 import Tute3 from '../../../public/(graphics)/Tute3.jpg'
@@ -44,119 +47,180 @@ function GraphicsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white">
-      <div className="px-4 md:px-12 pt-6">
-        <Link
-          href="/#project"
-          className="inline-flex items-center gap-2 text-sm md:text-base text-gray-300 hover:text-white transition-colors bg-gray-900/80 border border-red-600/60 hover:border-red-500 rounded-full px-4 py-2"
-        >
-          <FaArrowLeft className="w-3.5 h-3.5 md:w-4 md:h-4" />
-          <span>Back to Projects</span>
-        </Link>
+    <div className="min-h-screen bg-gradient-to-br from-red-950 via-black to-gray-950 text-white relative overflow-hidden">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute -top-32 left-1/2 w-[60vw] h-[60vw] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(220,38,38,0.35),transparent_70%)] blur-[120px]"></div>
+        <div className="absolute top-20 right-16 w-80 h-80 bg-red-600/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 left-20 w-96 h-96 bg-red-500/15 rounded-full blur-3xl animate-[pulse_6s_ease-in-out_infinite]"></div>
+        <div className="absolute inset-y-16 right-12 w-1 bg-gradient-to-b from-red-600/40 to-transparent opacity-60"></div>
       </div>
-      {/* Header1 */}
-      <header className="py-8 px-4 md:px-12">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12 sm:mb-16 animate-slide-up">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 text-white relative inline-block">
-              <span className="relative z-10">Graphic Design Projects</span>
-              <span className="absolute -bottom-1 sm:-bottom-2 left-0 w-full h-1 sm:h-2 bg-red-600 z-0 transform skew-x-12 animate-pulse"></span>
-            </h1>
-            <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
-              A collection of my graphic design work including tutorial covers, social media posts, and flyers.
-            </p>
-          </div>
-        </div>
-      </header>
 
-          {/* ABC Graphics - Links */}
-          <section className="px-4 md:px-12 -mt-4 mb-6">
-            <div className="max-w-6xl mx-auto">
-              <div className="rounded-2xl border border-red-600/30 bg-gradient-to-r from-red-950/30 via-black to-black p-5 sm:p-6 shadow-[0_0_0_1px_rgba(220,38,38,0.25)]">
-                <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-red-600/20 text-red-500">
-                    <FaFacebook className="h-6 w-6" />
+      <div className="relative z-10">
+        <div className="px-4 sm:px-6 md:px-12 pt-5 sm:pt-6">
+          <Link
+            href="/#project"
+            className="inline-flex items-center gap-2 text-xs sm:text-sm md:text-base text-red-100 hover:text-white transition-all duration-300 bg-gradient-to-r from-red-900/80 to-red-800/60 hover:from-red-800 hover:to-red-700 border-2 border-red-600/50 hover:border-red-500 rounded-full px-4 sm:px-6 py-2 sm:py-2.5 shadow-lg shadow-red-900/50 hover:shadow-xl hover:shadow-red-800/60 hover:scale-105 transform"
+          >
+            <FaArrowLeft className="w-3.5 h-3.5 md:w-4 md:h-4" />
+            <span className="font-semibold">Back to Projects</span>
+          </Link>
+        </div>
+
+        {/* Enhanced Header */}
+        <header className="py-6 sm:py-8 px-4 sm:px-6 md:px-12">
+          <div className="max-w-7xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-center mb-10 sm:mb-12 space-y-4 sm:space-y-6"
+            >
+              <div className="relative inline-block">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-red-500 to-red-600 relative z-10 drop-shadow-2xl">
+                  Graphic Design Gallery
+                </h1>
+                <div className="absolute -inset-1 bg-gradient-to-r from-red-600 to-red-800 blur-2xl opacity-30 animate-pulse"></div>
+                <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-3/4 h-1.5 bg-gradient-to-r from-transparent via-red-500 to-transparent rounded-full animate-pulse"></span>
+              </div>
+              <p className="text-sm sm:text-base md:text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed px-2">
+                Visual storytelling through vibrant compositions, bold typography, and red-hot creativity.
+              </p>
+              <div className="flex justify-center gap-2 mt-3">
+                <div className="w-2 h-2 rounded-full bg-red-500 animate-bounce"></div>
+                <div className="w-2 h-2 rounded-full bg-red-500 animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                <div className="w-2 h-2 rounded-full bg-red-500 animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+              </div>
+            </motion.div>
+
+          </div>
+        </header>
+
+        {/* ABC Graphics - Enhanced */}
+        <section className="px-4 sm:px-6 md:px-12 mb-8">
+          <div className="max-w-7xl mx-auto">
+            <div className="relative rounded-[28px] sm:rounded-[32px] border border-red-700/50 bg-gradient-to-br from-red-900/80 via-black/60 to-black/80 p-5 sm:p-8 overflow-hidden shadow-[0_0_45px_rgba(220,38,38,0.35)]">
+              <div className="absolute inset-0 pointer-events-none">
+                <div className="absolute -top-16 right-6 w-48 h-48 bg-red-500/40 blur-3xl animate-pulse"></div>
+                <div className="absolute -bottom-12 left-10 w-56 h-56 bg-red-600/20 blur-3xl"></div>
+              </div>
+              <div className="relative z-10 flex flex-col lg:flex-row lg:items-center gap-6">
+                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-red-600 to-red-700 text-white shadow-lg shadow-red-900/50">
+                  <FaFacebook className="h-8 w-8" />
+                </div>
+                <div className="flex-1 space-y-3">
+                  <div>
+                    <p className="text-xs tracking-[0.5em] uppercase text-red-400 mb-2">Featured Studio</p>
+                    <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight">ABC Graphics</h3>
                   </div>
-                  <div className="flex-1">
-                    <h3 className="text-xl sm:text-2xl font-semibold text-white tracking-tight">ABC Graphics</h3>
-                    <p className="mt-1 text-sm sm:text-base text-gray-300 max-w-3xl">
-                      Freelancer Graphic Design studio for social posts, flyers, tute covers, and branding.
-                    </p>
-                    <div className="mt-4 flex flex-wrap gap-3">
-                      <a
-                        href="https://www.abcgraphics.lk"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 rounded-full border border-red-600/40 bg-black/40 px-4 py-2 text-sm font-medium text-white hover:border-red-500/70 transition-colors"
-                      >
-                        Website
-                        <FaExternalLinkAlt className="h-3.5 w-3.5" />
-                      </a>
-                      <a
-                        href="https://www.facebook.com/profile.php?id=100095599507570"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 rounded-full border border-red-600/40 bg-black/40 px-4 py-2 text-sm font-medium text-white hover:border-red-500/70 transition-colors"
-                      >
-                        Facebook
-                        <FaExternalLinkAlt className="h-3.5 w-3.5" />
-                      </a>
-                    </div>
+                  <p className="text-sm sm:text-base text-gray-300 max-w-3xl leading-relaxed">
+                    Freelance graphic design studio crafting bold social posts, eye-catching flyers, professional tute covers, and cohesive branding systems.
+                  </p>
+                  <div className="flex flex-wrap gap-3 pt-2">
+                    <a
+                      href="https://www.abcgraphics.lk"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 rounded-full border-2 border-red-600/60 bg-black/40 px-4 sm:px-5 py-2 text-xs sm:text-sm font-bold text-white hover:border-red-500 hover:bg-red-900/30 transition-all duration-300 shadow-lg hover:shadow-red-900/40 hover:scale-105"
+                    >
+                      Website
+                      <FaExternalLinkAlt className="h-3.5 w-3.5" />
+                    </a>
+                    <a
+                      href="https://www.facebook.com/profile.php?id=100095599507570"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 rounded-full border-2 border-red-600/60 bg-black/40 px-4 sm:px-5 py-2 text-xs sm:text-sm font-bold text-white hover:border-red-500 hover:bg-red-900/30 transition-all duration-300 shadow-lg hover:shadow-red-900/40 hover:scale-105"
+                    >
+                      Facebook
+                      <FaExternalLinkAlt className="h-3.5 w-3.5" />
+                    </a>
                   </div>
                 </div>
               </div>
             </div>
-          </section>
-
-      {/* Navigation */}
-      <nav className="sticky top-0 bg-black z-10 border-b border-red-600">
-        <div className="container mx-auto px-4 py-3 sm:py-4 flex overflow-x-auto space-x-4 sm:space-x-6 scrollbar-hide">
-          <a href="#tute-covers" className="text-red-500 font-medium whitespace-nowrap text-sm sm:text-base py-1 min-h-[44px] flex items-center">
-            Tute Covers
-          </a>
-          <a href="#posts" className="text-white hover:text-red-500 font-medium whitespace-nowrap text-sm sm:text-base py-1 min-h-[44px] flex items-center">
-            Posts
-          </a>
-          <a href="#flayes" className="text-white hover:text-red-500 font-medium whitespace-nowrap text-sm sm:text-base py-1 min-h-[44px] flex items-center">
-            Flayes
-          </a>
-        </div>
-      </nav>
-
-      <div className="container mx-auto px-4 py-12">
-        {/* Tute Covers Section */}
-        <section id="tute-covers" className="mb-12 sm:mb-20">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 flex items-center">
-            <span className="w-3 sm:w-4 h-6 sm:h-8 bg-red-600 mr-3 sm:mr-4"></span>
-            Tute Covers
-          </h2>
-          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
-            {collections.tuteCovers.map((item) => (
-              <div key={item.id} className="group relative overflow-hidden rounded-lg">
-                <div className="aspect-w-4 aspect-h-5">
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
-                    width={500}
-                    height={600}
-                  />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                  <h3 className="text-white text-xl font-medium">{item.title}</h3>
-                </div>
-              </div>
-            ))}
           </div>
         </section>
 
-        {/* Posts Section */}
-        <section id="posts" className="mb-12 sm:mb-20">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 flex items-center">
-            <span className="w-3 sm:w-4 h-6 sm:h-8 bg-red-600 mr-3 sm:mr-4"></span>
-            Posts
-          </h2>
-          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-6">
+        {/* Enhanced Navigation */}
+        <nav className="sticky top-0 bg-gradient-to-r from-black via-red-950/30 to-black backdrop-blur-lg z-20 border-b-2 border-red-600/50 shadow-lg shadow-red-900/20">
+          <div className="container mx-auto px-4 py-3 sm:py-4 flex overflow-x-auto space-x-6 sm:space-x-8 scrollbar-hide">
+            <a href="#tute-covers" className="relative text-red-500 font-bold whitespace-nowrap text-sm sm:text-base py-2 min-h-[44px] flex items-center group">
+              <span className="relative z-10">Tute Covers</span>
+              <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-red-500 to-red-600 rounded-full"></span>
+            </a>
+            <a href="#posts" className="relative text-white hover:text-red-400 font-bold whitespace-nowrap text-sm sm:text-base py-2 min-h-[44px] flex items-center group transition-colors">
+              <span className="relative z-10">Posts</span>
+              <span className="absolute bottom-0 left-0 w-0 group-hover:w-full h-0.5 bg-gradient-to-r from-red-500 to-red-600 rounded-full transition-all duration-300"></span>
+            </a>
+            <a href="#flayes" className="relative text-white hover:text-red-400 font-bold whitespace-nowrap text-sm sm:text-base py-2 min-h-[44px] flex items-center group transition-colors">
+              <span className="relative z-10">Flyers</span>
+              <span className="absolute bottom-0 left-0 w-0 group-hover:w-full h-0.5 bg-gradient-to-r from-red-500 to-red-600 rounded-full transition-all duration-300"></span>
+            </a>
+          </div>
+        </nav>
+
+        <div className="container mx-auto px-4 py-10 sm:py-12 relative z-10">
+          {/* Tute Covers Section */}
+          <section id="tute-covers" className="mb-12 sm:mb-20">
+            <div className="mb-8">
+              <div className="flex items-center gap-4 mb-3">
+                <span className="w-1 h-12 bg-gradient-to-b from-red-500 to-red-700 rounded-full"></span>
+                <h2 className="text-2xl sm:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-red-600">
+                  Tutorial Covers
+                </h2>
+              </div>
+              <p className="text-gray-400 text-xs sm:text-sm ml-6 pl-3">Educational materials with bold, attention-grabbing designs</p>
+            </div>
+            <div className="grid grid-cols-1 min-[420px]:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+              {collections.tuteCovers.map((item, idx) => (
+                <motion.div
+                  key={item.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: idx * 0.1 }}
+                  className="group relative overflow-hidden rounded-2xl border-2 border-red-900/30 hover:border-red-500/80 transition-all duration-500 shadow-lg hover:shadow-2xl hover:shadow-red-900/40"
+                >
+                  <div className="absolute top-3 left-3 z-10 flex flex-col gap-1">
+                    <span className="w-10 h-0.5 bg-gradient-to-r from-red-500 to-transparent rounded-full opacity-60"></span>
+                    <span className="w-7 h-0.5 bg-gradient-to-r from-red-400 to-transparent rounded-full opacity-40"></span>
+                  </div>
+                  <div className="aspect-[4/5]">
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110 group-hover:rotate-1"
+                      width={500}
+                      height={600}
+                    />
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                    <div>
+                      <h3 className="text-white text-sm sm:text-base font-black mb-1">{item.title}</h3>
+                      <div className="w-16 h-1 bg-gradient-to-r from-red-500 to-transparent rounded-full"></div>
+                    </div>
+                  </div>
+                  <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:rotate-45">
+                    <div className="w-7 h-7 rounded-full bg-red-500/20 backdrop-blur-sm border border-red-500/50 flex items-center justify-center">
+                      <span className="text-red-400 text-sm">→</span>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </section>
+
+          {/* Posts Section */}
+          <section id="posts" className="mb-12 sm:mb-20">
+            <div className="mb-8">
+              <div className="flex items-center gap-4 mb-3">
+                <span className="w-1 h-12 bg-gradient-to-b from-red-500 to-red-700 rounded-full"></span>
+                <h2 className="text-2xl sm:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-red-600">
+                  Social Media Posts
+                </h2>
+              </div>
+              <p className="text-gray-400 text-xs sm:text-sm ml-6 pl-3">Engaging content crafted for maximum social impact</p>
+            </div>
+            <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
             {[
               { id: 1, image: Post1, title: 'Social Media Post 1' },
               { id: 2, image: Post2, title: 'Social Media Post 2' },
@@ -172,51 +236,91 @@ function GraphicsPage() {
               { id: 12, image: Post12, title: 'Social Media Post 12' },
               { id: 13, image: Post13, title: 'Social Media Post 13' },
 
-            ].map((item) => (
-              <div key={item.id} className="group relative overflow-hidden rounded-lg">
-                <div className="aspect-w-4 aspect-h-5">
+            ].map((item, idx) => (
+              <motion.div
+                key={item.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: idx * 0.05 }}
+                className="group relative overflow-hidden rounded-2xl border-2 border-red-900/30 hover:border-red-500/80 transition-all duration-500 shadow-lg hover:shadow-2xl hover:shadow-red-900/40"
+              >
+                <div className="absolute top-3 left-3 z-10 flex flex-col gap-1">
+                  <span className="w-10 h-0.5 bg-gradient-to-r from-red-500 to-transparent rounded-full opacity-60"></span>
+                  <span className="w-7 h-0.5 bg-gradient-to-r from-red-400 to-transparent rounded-full opacity-40"></span>
+                </div>
+                <div className="aspect-[4/5]">
                   <Image
                     src={item.image}
                     alt={item.title}
-                    className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
+                    className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110 group-hover:rotate-1"
                     width={500}
                     height={600}
                   />
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                  <h3 className="text-white text-xl font-medium">{item.title}</h3>
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                  <div>
+                    <h3 className="text-white text-xs sm:text-sm font-black mb-1">{item.title}</h3>
+                    <div className="w-12 h-1 bg-gradient-to-r from-red-500 to-transparent rounded-full"></div>
+                  </div>
                 </div>
-              </div>
+                <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:rotate-45">
+                  <div className="w-7 h-7 rounded-full bg-red-500/20 backdrop-blur-sm border border-red-500/50 flex items-center justify-center">
+                    <span className="text-red-400 text-sm">→</span>
+                  </div>
+                </div>
+              </motion.div>
             ))}
-          </div>
-        </section>
+            </div>
+          </section>
 
-        {/* Flayes Section */}
-        <section id="flayes">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 flex items-center">
-            <span className="w-3 sm:w-4 h-6 sm:h-8 bg-red-600 mr-3 sm:mr-4"></span>
-            Flayes
-          </h2>
-          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
-            {collections.flayes.map((item) => (
-              <div key={item.id} className="group relative overflow-hidden rounded-lg">
-                <div className="aspect-w-4 aspect-h-5">
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
-                    width={500}
-                    height={600}
-                  />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
-                  <h3 className="text-white text-xl font-medium">{item.title}</h3>
-                  <p className="text-gray-300">{item.description}</p>
-                </div>
+          {/* Flyers Section */}
+          <section id="flayes">
+            <div className="mb-8">
+              <div className="flex items-center gap-4 mb-3">
+                <span className="w-1 h-12 bg-gradient-to-b from-red-500 to-red-700 rounded-full"></span>
+                <h2 className="text-2xl sm:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-red-600">
+                  Flyers & Print Design
+                </h2>
               </div>
-            ))}
-          </div>
-        </section>
+              <p className="text-gray-400 text-xs sm:text-sm ml-6 pl-3">Professional print materials for businesses and classes</p>
+            </div>
+            <div className="grid grid-cols-1 min-[420px]:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+              {collections.flayes.map((item, idx) => (
+                <motion.div
+                  key={item.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: idx * 0.1 }}
+                  className="group relative overflow-hidden rounded-2xl border-2 border-red-900/30 hover:border-red-500/80 transition-all duration-500 shadow-lg hover:shadow-2xl hover:shadow-red-900/40"
+                >
+                  <div className="absolute top-3 left-3 z-10 flex flex-col gap-1">
+                    <span className="w-10 h-0.5 bg-gradient-to-r from-red-500 to-transparent rounded-full opacity-60"></span>
+                    <span className="w-7 h-0.5 bg-gradient-to-r from-red-400 to-transparent rounded-full opacity-40"></span>
+                  </div>
+                  <div className="aspect-[4/5]">
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110 group-hover:rotate-1"
+                      width={500}
+                      height={600}
+                    />
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                    <h3 className="text-white text-sm sm:text-base font-black mb-1">{item.title}</h3>
+                    <p className="text-red-400 text-xs sm:text-sm font-semibold mb-2">{item.description}</p>
+                    <div className="w-16 h-1 bg-gradient-to-r from-red-500 to-transparent rounded-full"></div>
+                  </div>
+                  <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:rotate-45">
+                    <div className="w-7 h-7 rounded-full bg-red-500/20 backdrop-blur-sm border border-red-500/50 flex items-center justify-center">
+                      <span className="text-red-400 text-sm">→</span>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </section>
+        </div>
       </div>
     </div>
   );
