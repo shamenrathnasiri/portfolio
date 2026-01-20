@@ -143,35 +143,55 @@ const projects = [
 
 export default function DevelopmentPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black text-white px-4 py-8 sm:p-8 animate-fade-in">
-      <div className="max-w-6xl mx-auto">
+    <div className="min-h-screen bg-gradient-to-br from-red-950 via-black to-gray-950 text-white px-4 py-8 sm:p-8 animate-fade-in relative overflow-hidden">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-red-600/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-red-500/10 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
+        <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-red-700/5 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
+      </div>
+      
+      <div className="max-w-6xl mx-auto relative z-10">
         <div className="mb-6 sm:mb-10">
           <Link
             href="/#project"
-            className="inline-flex items-center gap-2 text-sm sm:text-base text-gray-300 hover:text-white transition-colors bg-gray-800/60 border border-gray-700 hover:border-red-500 rounded-full px-4 py-2"
+            className="inline-flex items-center gap-2 text-sm sm:text-base text-red-100 hover:text-white transition-all duration-300 bg-gradient-to-r from-red-900/80 to-red-800/60 hover:from-red-800 hover:to-red-700 border-2 border-red-600/50 hover:border-red-500 rounded-full px-6 py-2.5 shadow-lg shadow-red-900/50 hover:shadow-xl hover:shadow-red-800/60 hover:scale-105 transform"
           >
             <FaArrowLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-            <span>Back to Projects</span>
+            <span className="font-semibold">Back to Projects</span>
           </Link>
         </div>
         {/* Centered Main Title with Red Accent */}
         <div className="text-center mb-12 sm:mb-16 animate-slide-up">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 text-white relative inline-block">
-            <span className="relative z-10">Development Projects</span>
-            <span className="absolute -bottom-1 sm:-bottom-2 left-0 w-full h-1 sm:h-2 bg-red-600 z-0 transform skew-x-12 animate-pulse"></span>
-          </h1>
-          <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
-            A collection of my development projects from beginner to advanced levels
+          <div className="relative inline-block mb-6">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black mb-3 sm:mb-4 text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-red-500 to-red-600 relative z-10 drop-shadow-2xl">
+              Development Projects
+            </h1>
+            <div className="absolute -inset-1 bg-gradient-to-r from-red-600 to-red-800 blur-2xl opacity-30 animate-pulse"></div>
+            <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-3/4 h-1.5 bg-gradient-to-r from-transparent via-red-500 to-transparent rounded-full animate-pulse"></span>
+          </div>
+          <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+            A collection of my <span className="text-red-400 font-semibold">innovative</span> development projects from beginner to <span className="text-red-400 font-semibold">advanced</span> levels
           </p>
+          <div className="flex justify-center gap-2 mt-6">
+            <div className="w-2 h-2 rounded-full bg-red-500 animate-bounce"></div>
+            <div className="w-2 h-2 rounded-full bg-red-500 animate-bounce" style={{animationDelay: '0.1s'}}></div>
+            <div className="w-2 h-2 rounded-full bg-red-500 animate-bounce" style={{animationDelay: '0.2s'}}></div>
+          </div>
         </div>
 
         {/* System Development Projects */}
         <div className="mb-12 sm:mb-20 animate-fade-in">
-          <div className="flex items-center mb-6 sm:mb-8 animate-slideInLeft">
-            <h2 className="text-2xl sm:text-3xl font-bold text-white mr-3 sm:mr-4">
-              System Development
-            </h2>
-            <div className="flex-grow h-px bg-gradient-to-r from-red-600 to-transparent"></div>
+          <div className="flex items-center mb-6 sm:mb-8 animate-slideInLeft group">
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center shadow-lg shadow-red-900/50">
+                <span className="text-2xl">🚀</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-red-600">
+                System Development
+              </h2>
+            </div>
+            <div className="flex-grow h-1 bg-gradient-to-r from-red-600 via-red-500/50 to-transparent ml-4 rounded-full"></div>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
             {projects
@@ -184,11 +204,16 @@ export default function DevelopmentPage() {
 
         {/* Web Development Projects */}
         <div className="mb-12 sm:mb-20 animate-fade-in">
-          <div className="flex items-center mb-6 sm:mb-8 animate-slideInRight">
-            <h2 className="text-2xl sm:text-3xl font-bold text-white mr-3 sm:mr-4">
-              Web Development
-            </h2>
-            <div className="flex-grow h-px bg-gradient-to-r from-red-600 to-transparent"></div>
+          <div className="flex items-center mb-6 sm:mb-8 animate-slideInRight group">
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center shadow-lg shadow-red-900/50">
+                <span className="text-2xl">💻</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-red-600">
+                Web Development
+              </h2>
+            </div>
+            <div className="flex-grow h-1 bg-gradient-to-r from-red-600 via-red-500/50 to-transparent ml-4 rounded-full"></div>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {projects
@@ -201,11 +226,16 @@ export default function DevelopmentPage() {
 
         {/* Beginner Development Projects */}
         <div className="animate-fade-in">
-          <div className="flex items-center mb-6 sm:mb-8 animate-slideInLeft">
-            <h2 className="text-2xl sm:text-3xl font-bold text-white mr-3 sm:mr-4">
-              Beginner Projects
-            </h2>
-            <div className="flex-grow h-px bg-gradient-to-r from-red-600 to-transparent"></div>
+          <div className="flex items-center mb-6 sm:mb-8 animate-slideInLeft group">
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center shadow-lg shadow-red-900/50">
+                <span className="text-2xl">⭐</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-red-600">
+                Beginner Projects
+              </h2>
+            </div>
+            <div className="flex-grow h-1 bg-gradient-to-r from-red-600 via-red-500/50 to-transparent ml-4 rounded-full"></div>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {projects
@@ -230,48 +260,63 @@ function ProjectCard({ project, index }) {
 
   return (
     <div 
-      className="bg-gray-800 rounded-lg sm:rounded-xl shadow-lg overflow-hidden transition-all duration-500 ease-in-out hover:scale-105 hover:shadow-2xl hover:shadow-red-500/50 border border-gray-700 hover:border-red-500/60 flex flex-col h-full animate-slide-up"
+      className="group bg-gradient-to-br from-gray-900 via-gray-900/95 to-black rounded-2xl shadow-2xl overflow-hidden transition-all duration-500 ease-in-out hover:scale-[1.03] border-2 border-red-900/30 hover:border-red-500/80 flex flex-col h-full animate-slide-up relative"
       style={{ animationDelay: `${index * 0.1}s` }}
     >
-      <div className="p-4 sm:p-6 flex flex-col flex-grow">
+      {/* Decorative Corner Elements */}
+      <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-red-600/20 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-red-600/20 to-transparent rounded-tr-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      
+      {/* Animated Border Glow */}
+      <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+        <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-red-600/0 via-red-500/50 to-red-600/0 blur-xl"></div>
+      </div>
+      
+      <div className="p-4 sm:p-6 flex flex-col flex-grow relative z-10">
         <div className="mb-3 sm:mb-4">
-          <span className={`inline-block px-2 py-0.5 sm:px-3 sm:py-1 rounded-full text-xs font-semibold mb-1 sm:mb-2 transition-colors duration-300 ${
+          <span className={`inline-block px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs font-bold mb-2 sm:mb-3 transition-all duration-300 shadow-lg ${
             project.type === "system" 
-              ? "bg-red-900 text-red-100 hover:bg-red-700" 
+              ? "bg-gradient-to-r from-red-600 to-red-700 text-white hover:from-red-500 hover:to-red-600 shadow-red-900/50" 
               : project.type === "web" 
-                ? "bg-blue-900 text-blue-100 hover:bg-blue-700" 
-                : "bg-green-900 text-green-100 hover:bg-green-700"
+                ? "bg-gradient-to-r from-red-500 to-red-600 text-white hover:from-red-400 hover:to-red-500 shadow-red-800/50" 
+                : "bg-gradient-to-r from-red-700 to-red-800 text-white hover:from-red-600 hover:to-red-700 shadow-red-900/50"
           }`}>
-            {project.type === "system" ? "System" : project.type === "web" ? "Web" : "Beginner"}
+            {project.type === "system" ? "🎯 System" : project.type === "web" ? "🌐 Web" : "✨ Beginner"}
           </span>
-          <h2 className="text-xl sm:text-2xl font-bold text-white hover:text-red-300 transition-colors duration-300">{project.title}</h2>
-          <h3 className="text-sm sm:text-lg text-red-400">{project.subtitle}</h3>
+          <h2 className="text-xl sm:text-2xl font-black text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-red-400 group-hover:to-red-600 transition-all duration-300 mb-1">
+            {project.title}
+          </h2>
+          <h3 className="text-sm sm:text-base text-red-400 font-semibold">{project.subtitle}</h3>
         </div>
-        <p className="text-gray-300 mb-4 sm:mb-6 text-sm sm:text-base leading-relaxed flex-grow">
+        
+        {/* Divider Line */}
+        <div className="w-16 h-1 bg-gradient-to-r from-red-600 to-transparent rounded-full mb-4 group-hover:w-full transition-all duration-500"></div>
+        
+        <p className="text-gray-300 group-hover:text-gray-200 mb-4 sm:mb-6 text-sm sm:text-base leading-relaxed flex-grow transition-colors duration-300">
           {project.description}
         </p>
-        <div className="flex flex-wrap gap-1 sm:gap-2 mb-4 sm:mb-6">
+        <div className="flex flex-wrap gap-2 mb-4 sm:mb-6">
           {project.tags.map((tag, i) => (
             <span
               key={i}
-              className="inline-block bg-gray-700 text-gray-200 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full text-xs font-medium hover:bg-red-600 hover:text-white transition-all duration-300"
+              className="inline-block bg-gradient-to-r from-gray-800 to-gray-900 text-gray-300 px-3 py-1.5 sm:px-3 sm:py-1.5 rounded-lg text-xs font-semibold border border-red-900/30 hover:border-red-500/50 hover:from-red-900/50 hover:to-red-800/50 hover:text-white transition-all duration-300 hover:scale-105 shadow-sm"
             >
               {tag}
             </span>
           ))}
         </div>
       </div>
-      <div className="bg-gray-900 px-4 py-3 sm:px-6 sm:py-4 border-t border-gray-700 flex justify-between items-center hover:bg-red-900/20 transition-colors duration-300">
-        <div className="flex items-center gap-2">
+      <div className="bg-gradient-to-r from-gray-950 via-red-950/20 to-gray-950 px-4 py-4 sm:px-6 sm:py-5 border-t-2 border-red-900/40 group-hover:border-red-500/60 flex justify-between items-center transition-all duration-300 relative z-10">
+        <div className="flex items-center gap-3 sm:gap-4">
           {hasWebsite && (
             <Link
               href={websiteUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1 sm:gap-2 text-white hover:text-red-400 transition-all duration-300 group hover:bg-red-600 hover:px-3 hover:py-1 hover:rounded-md"
+              className="flex items-center gap-1.5 sm:gap-2 text-red-400 hover:text-white transition-all duration-300 group/link hover:bg-gradient-to-r hover:from-red-600 hover:to-red-700 px-3 py-2 rounded-lg font-semibold shadow-sm hover:shadow-lg hover:shadow-red-900/50"
             >
-              <FaExternalLinkAlt className="w-4 h-4 sm:w-5 sm:h-5 group-hover:scale-110 transition-transform duration-300" />
-              <span className="group-hover:underline text-xs sm:text-sm">Live</span>
+              <FaExternalLinkAlt className="w-4 h-4 group-hover/link:rotate-12 transition-transform duration-300" />
+              <span className="text-xs sm:text-sm">Live</span>
             </Link>
           )}
           {hasFrontend && (
@@ -279,11 +324,11 @@ function ProjectCard({ project, index }) {
               href={frontendUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1 sm:gap-2 text-white hover:text-red-400 transition-all duration-300 group hover:bg-red-600 hover:px-3 hover:py-1 hover:rounded-md"
+              className="flex items-center gap-1.5 sm:gap-2 text-red-400 hover:text-white transition-all duration-300 group/link hover:bg-gradient-to-r hover:from-red-600 hover:to-red-700 px-3 py-2 rounded-lg font-semibold shadow-sm hover:shadow-lg hover:shadow-red-900/50"
             >
-              <FaGithub className="w-4 h-4 sm:w-5 sm:h-5 group-hover:scale-110 transition-transform duration-300" />
-              <span className="group-hover:underline text-xs sm:text-sm">
-                {hasBackend ? "Frontend" : "View Code"}
+              <FaGithub className="w-4 h-4 group-hover/link:rotate-12 transition-transform duration-300" />
+              <span className="text-xs sm:text-sm">
+                {hasBackend ? "Frontend" : "Code"}
               </span>
             </Link>
           )}
@@ -292,16 +337,16 @@ function ProjectCard({ project, index }) {
               href={backendUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1 sm:gap-2 text-white hover:text-red-400 transition-all duration-300 group hover:bg-red-600 hover:px-3 hover:py-1 hover:rounded-md"
+              className="flex items-center gap-1.5 sm:gap-2 text-red-400 hover:text-white transition-all duration-300 group/link hover:bg-gradient-to-r hover:from-red-600 hover:to-red-700 px-3 py-2 rounded-lg font-semibold shadow-sm hover:shadow-lg hover:shadow-red-900/50"
             >
-              <FaGithub className="w-4 h-4 sm:w-5 sm:h-5 group-hover:scale-110 transition-transform duration-300" />
-              <span className="group-hover:underline text-xs sm:text-sm">
-                {hasFrontend ? "Backend" : "View Code"}
+              <FaGithub className="w-4 h-4 group-hover/link:rotate-12 transition-transform duration-300" />
+              <span className="text-xs sm:text-sm">
+                {hasFrontend ? "Backend" : "Code"}
               </span>
             </Link>
           )}
         </div>
-        <span className="text-xs text-red-400 font-medium">
+        <span className="text-xs text-red-400 font-bold px-3 py-1.5 bg-red-950/50 rounded-lg border border-red-800/50">
           {project.type === "system" ? "Full-stack" : project.type === "web" ? "Frontend" : "Beginner"}
         </span>
       </div>
