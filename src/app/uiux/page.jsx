@@ -70,15 +70,22 @@ export default function UIUXPortfolio() {
   const closeDetail = () => setSelectedId(null);
 
   return (
-    <section className="min-h-screen bg-gradient-to-br from-black to-gray-900 py-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+    <section className="min-h-screen bg-gradient-to-br from-red-950 via-black to-gray-950 py-16 sm:py-20 px-4 sm:px-6 md:px-10 relative overflow-hidden">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-10 right-20 w-96 h-96 bg-red-600/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-10 left-20 w-[500px] h-[500px] bg-red-500/10 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1.5s'}}></div>
+        <div className="absolute top-1/3 left-1/3 w-72 h-72 bg-red-700/5 rounded-full blur-3xl animate-pulse" style={{animationDelay: '3s'}}></div>
+      </div>
+      
+      <div className="max-w-7xl mx-auto relative z-10">
         <div className="mb-10">
           <Link
             href="/#project"
-            className="inline-flex items-center gap-2 text-sm sm:text-base text-gray-300 hover:text-white transition-colors bg-gray-800/60 border border-gray-700 hover:border-red-500 rounded-full px-4 py-2"
+            className="inline-flex items-center gap-2 text-sm sm:text-base text-red-100 hover:text-white transition-all duration-300 bg-gradient-to-r from-red-900/80 to-red-800/60 hover:from-red-800 hover:to-red-700 border-2 border-red-600/50 hover:border-red-500 rounded-full px-6 py-2.5 shadow-lg shadow-red-900/50 hover:shadow-xl hover:shadow-red-800/60 hover:scale-105 transform"
           >
             <FaArrowLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-            <span>Back to Projects</span>
+            <span className="font-semibold">Back to Projects</span>
           </Link>
         </div>
         {/* Section Header */}
@@ -87,51 +94,87 @@ export default function UIUXPortfolio() {
           animate={{ opacity: 1, y: 0 }}
           className="mb-16 text-center"
         >
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 text-white relative inline-block">
-            <span className="relative z-10">UI/UX Design Projects</span>
-            <span className="absolute -bottom-1 sm:-bottom-2 left-0 w-full h-1 sm:h-2 bg-red-600 z-0 transform skew-x-12 animate-pulse"></span>
-          </h1>
-          <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
-            Selected works showcasing user-centered design solutions
+          <div className="relative inline-block mb-6">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black mb-3 sm:mb-4 text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-red-500 to-red-600 relative z-10 drop-shadow-2xl">
+              UI/UX Design Projects
+            </h1>
+            <div className="absolute -inset-1 bg-gradient-to-r from-red-600 to-red-800 blur-2xl opacity-30 animate-pulse"></div>
+            <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-3/4 h-1.5 bg-gradient-to-r from-transparent via-red-500 to-transparent rounded-full animate-pulse"></span>
+          </div>
+          <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+            Selected works showcasing <span className="text-red-400 font-semibold">user-centered</span> design solutions
           </p>
+          <div className="flex justify-center gap-2 mt-6">
+            <div className="w-2 h-2 rounded-full bg-red-500 animate-bounce"></div>
+            <div className="w-2 h-2 rounded-full bg-red-500 animate-bounce" style={{animationDelay: '0.1s'}}></div>
+            <div className="w-2 h-2 rounded-full bg-red-500 animate-bounce" style={{animationDelay: '0.2s'}}></div>
+          </div>
         </motion.div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {uiuxProjects.map((project) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-16">
+          {uiuxProjects.map((project, idx) => (
             <motion.div
               key={project.id}
               layoutId={`card-${project.id}`}
               onClick={() => selectProject(project.id)}
-              whileHover={{ y: -10, boxShadow: "0 10px 25px -5px rgba(239, 68, 68, 0.3)" }}
-              className="bg-gray-800 rounded-xl shadow-lg overflow-hidden cursor-pointer border border-gray-700 transition-all duration-300"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: idx * 0.1 }}
+              whileHover={{ y: -12, scale: 1.02 }}
+              className="group bg-gradient-to-br from-gray-900 via-gray-900/95 to-black rounded-2xl shadow-2xl overflow-hidden cursor-pointer border-2 border-red-900/30 hover:border-red-500/80 transition-all duration-500 relative min-h-[420px] sm:min-h-[440px]"
             >
-              <div className="relative h-48 overflow-hidden">
+              {/* Hover Glow Effect */}
+              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-red-600/0 via-red-500/30 to-red-600/0 blur-xl"></div>
+              </div>
+              
+              <div className="relative h-48 sm:h-56 overflow-hidden">
                 <Image
                   src={project.images[0]}
                   alt={project.title}
                   fill
-                  className="object-cover transition-transform duration-500 hover:scale-110"
+                  className="object-cover transition-transform duration-700 group-hover:scale-110 group-hover:rotate-1"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                <div className="absolute bottom-4 left-4">
-                  <span className="bg-red-500 text-white text-xs px-3 py-1 rounded-full font-medium">
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                
+                {/* Animated Corner Accent */}
+                <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-red-500/40 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                <div className="absolute bottom-4 left-4 flex items-center gap-2">
+                  <span className="bg-gradient-to-r from-red-600 to-red-700 text-white text-xs px-4 py-1.5 rounded-full font-bold shadow-lg shadow-red-900/50">
                     {project.category}
                   </span>
+                  <span className="bg-black/60 backdrop-blur-sm text-red-400 text-xs px-3 py-1.5 rounded-full font-semibold border border-red-500/30">
+                    {project.year}
+                  </span>
+                </div>
+                
+                {/* Hover Indicator */}
+                <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:rotate-45">
+                  <div className="w-8 h-8 rounded-full bg-red-500/20 backdrop-blur-sm border border-red-500/50 flex items-center justify-center">
+                    <span className="text-red-400 text-lg">→</span>
+                  </div>
                 </div>
               </div>
-              <div className="p-6">
-                <div className="flex justify-between items-start mb-2">
-                  <h3 className="text-xl font-bold text-white">{project.title}</h3>
-                  <span className="text-gray-400 text-sm">{project.year}</span>
-                </div>
-                <p className="text-gray-300 text-sm mb-4 line-clamp-2">{project.description}</p>
+              
+              <div className="p-5 sm:p-6 relative z-10">
+                <h3 className="text-xl font-black text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-red-400 group-hover:to-red-600 transition-all duration-300 mb-3">
+                  {project.title}
+                </h3>
+                
+                <div className="w-12 h-1 bg-gradient-to-r from-red-600 to-transparent rounded-full mb-3 group-hover:w-full transition-all duration-500"></div>
+                
+                <p className="text-gray-300 group-hover:text-gray-200 text-sm mb-4 line-clamp-2 leading-relaxed">
+                  {project.description}
+                </p>
+                
                 <div className="flex flex-wrap gap-2">
                   {project.highlights.map((highlight, i) => (
                     <span 
                       key={i} 
-                      className="bg-gray-700 text-gray-200 text-xs px-2 py-1 rounded"
+                      className="bg-gradient-to-r from-gray-800 to-gray-900 text-gray-300 text-xs px-3 py-1.5 rounded-lg font-semibold border border-red-900/30 hover:border-red-500/50 hover:from-red-900/50 hover:to-red-800/50 hover:text-white transition-all duration-300"
                     >
                       {highlight}
                     </span>
@@ -149,17 +192,28 @@ export default function UIUXPortfolio() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-2 sm:p-4"
+              transition={{ duration: 0.25 }}
+              className="fixed inset-0 bg-black/95 backdrop-blur-sm z-50 flex items-center justify-center p-2 sm:p-4"
               onClick={closeDetail}
             >
               <motion.div
                 layoutId={`card-${selectedId}`}
-                className="bg-gray-900 rounded-xl max-w-6xl w-full max-h-[95vh] sm:max-h-[90vh] overflow-y-auto border border-gray-800 relative"
+                initial={{ scale: 0.85, y: -20, opacity: 0 }}
+                animate={{ scale: 1, y: 0, opacity: 1 }}
+                exit={{ scale: 0.85, y: 10, opacity: 0 }}
+                transition={{ duration: 0.35, ease: "easeOut" }}
+                className="bg-gradient-to-br from-gray-900 via-gray-900 to-black rounded-2xl max-w-5xl w-full max-h-[88vh] sm:max-h-[85vh] overflow-y-auto border-2 border-red-900/50 shadow-2xl shadow-red-900/30 relative"
                 onClick={(e) => e.stopPropagation()}
               >
+                {/* Decorative Background */}
+                <div className="absolute inset-0 overflow-hidden rounded-2xl pointer-events-none">
+                  <div className="absolute -top-20 -right-20 w-64 h-64 bg-red-600/10 rounded-full blur-3xl"></div>
+                  <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-red-500/10 rounded-full blur-3xl"></div>
+                </div>
+                
                 <button 
                   onClick={closeDetail}
-                  className="absolute top-2 right-2 sm:top-4 sm:right-4 bg-red-500 text-white w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center z-10 hover:bg-red-600 transition-colors text-lg sm:text-xl"
+                  className="absolute top-2 right-2 sm:top-4 sm:right-4 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 text-white w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center z-20 transition-all duration-300 shadow-lg shadow-red-900/50 hover:scale-110 hover:rotate-90 border-2 border-red-500/50 font-bold text-xl sm:text-2xl"
                   aria-label="Close modal"
                 >
                   &times;
@@ -190,46 +244,50 @@ function ProjectDetail({ project, direction, onNavigate }) {
   const currentIndex = uiuxProjects.findIndex(p => p.id === project.id);
   
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 relative z-10">
       {/* Left Column - Content */}
       <motion.div
         initial={{ x: direction * 50, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.3 }}
-        className="p-4 sm:p-6 lg:p-8 bg-gray-900 order-2 lg:order-1"
+        className="p-4 sm:p-6 lg:p-8 bg-gradient-to-br from-gray-900 to-black order-2 lg:order-1 border-r border-red-900/30"
       >
         <div className="mb-6">
-          <div className="flex flex-wrap items-center gap-2">
-            <span className="bg-red-500 text-white text-xs px-3 py-1 rounded-full font-medium">
+          <div className="flex flex-wrap items-center gap-3">
+            <span className="bg-gradient-to-r from-red-600 to-red-700 text-white text-xs px-4 py-2 rounded-full font-bold shadow-lg shadow-red-900/50">
               {project.category}
             </span>
-            <span className="text-gray-400 text-sm">{project.year}</span>
+            <span className="text-red-400 text-sm font-semibold bg-red-950/30 px-3 py-1.5 rounded-full border border-red-800/30">{project.year}</span>
           </div>
         </div>
         
-        <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">{project.title}</h2>
+        <h2 className="text-2xl sm:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-red-600 mb-2">{project.title}</h2>
+        <div className="w-20 h-1 bg-gradient-to-r from-red-600 to-transparent rounded-full mb-4"></div>
         
-        <p className="text-gray-300 mb-6">{project.description}</p>
+        <p className="text-gray-300 leading-relaxed mb-6 text-sm sm:text-base">{project.description}</p>
         
-        <div className="mb-8">
-          <h4 className="font-semibold text-white mb-3">Key Highlights</h4>
+        <div className="mb-8 bg-gradient-to-r from-red-950/20 to-transparent p-5 rounded-xl border border-red-900/20">
+          <h4 className="font-black text-white mb-4 flex items-center gap-2">
+            <span className="w-1 h-6 bg-gradient-to-b from-red-500 to-red-700 rounded-full"></span>
+            Key Highlights
+          </h4>
           <ul className="space-y-3">
             {project.highlights.map((item, i) => (
-              <li key={i} className="flex items-start">
-                <span className="text-red-500 mr-3 mt-0.5">•</span>
-                <span className="text-gray-300">{item}</span>
+              <li key={i} className="flex items-start group">
+                <span className="text-red-500 mr-3 mt-1 text-lg group-hover:scale-125 transition-transform">✦</span>
+                <span className="text-gray-300 group-hover:text-white transition-colors">{item}</span>
               </li>
             ))}
           </ul>
         </div>
         
-        <div className="flex flex-col sm:flex-row gap-4 pt-4 border-t border-gray-800">
+        <div className="flex flex-col sm:flex-row gap-4 pt-6 border-t-2 border-red-900/30">
           {currentIndex > 0 && (
             <button
               onClick={() => onNavigate(uiuxProjects[currentIndex - 1].id)}
-              className="flex items-center justify-center gap-2 text-white hover:text-red-400 transition-colors px-4 py-2 rounded-lg bg-gray-800 hover:bg-gray-700"
+              className="flex items-center justify-center gap-2 text-white hover:text-white transition-all duration-300 px-6 py-3 rounded-xl bg-gradient-to-r from-gray-800 to-gray-900 hover:from-red-900/50 hover:to-red-800/50 border border-red-900/30 hover:border-red-500/50 shadow-lg hover:shadow-red-900/30 hover:scale-105 font-semibold w-full sm:w-auto"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
               Previous
@@ -238,10 +296,10 @@ function ProjectDetail({ project, direction, onNavigate }) {
           {currentIndex < uiuxProjects.length - 1 && (
             <button
               onClick={() => onNavigate(uiuxProjects[currentIndex + 1].id)}
-              className="flex items-center justify-center gap-2 text-white hover:text-red-400 transition-colors px-4 py-2 rounded-lg bg-gray-800 hover:bg-gray-700 ml-auto"
+              className="flex items-center justify-center gap-2 text-white hover:text-white transition-all duration-300 px-6 py-3 rounded-xl bg-gradient-to-r from-gray-800 to-gray-900 hover:from-red-900/50 hover:to-red-800/50 border border-red-900/30 hover:border-red-500/50 shadow-lg hover:shadow-red-900/30 hover:scale-105 font-semibold ml-auto w-full sm:w-auto"
             >
               Next
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </button>
@@ -254,9 +312,9 @@ function ProjectDetail({ project, direction, onNavigate }) {
         initial={{ x: direction * -50, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.3 }}
-        className="bg-gray-800 p-4 sm:p-6 lg:p-8 order-1 lg:order-2"
+        className="bg-gradient-to-bl from-gray-900 to-black p-4 sm:p-6 lg:p-8 order-1 lg:order-2"
       >
-        <div className="mb-4 h-48 sm:h-64 md:h-80 relative rounded-lg overflow-hidden bg-gray-900">
+        <div className="mb-4 h-48 sm:h-64 md:h-80 relative rounded-2xl overflow-hidden bg-gradient-to-br from-gray-950 to-black border-2 border-red-900/30 shadow-2xl shadow-red-900/20">
           <Image
             src={project.images[currentImage]}
             alt={`${project.title} - Image ${currentImage + 1}`}
@@ -264,6 +322,9 @@ function ProjectDetail({ project, direction, onNavigate }) {
             className="object-contain"
             sizes="(max-width: 768px) 100vw, 50vw"
           />
+          {/* Image Frame Decoration */}
+          <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-red-500/50 rounded-tl-2xl"></div>
+          <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-red-500/50 rounded-br-2xl"></div>
         </div>
         
         <div className="grid grid-cols-3 gap-2 sm:gap-3">
@@ -271,10 +332,10 @@ function ProjectDetail({ project, direction, onNavigate }) {
             <button
               key={i}
               onClick={() => setCurrentImage(i)}
-              className={`h-20 sm:h-24 relative rounded overflow-hidden transition-all ${
+              className={`h-20 sm:h-24 relative rounded-xl overflow-hidden transition-all duration-300 ${
                 currentImage === i 
-                  ? 'ring-2 ring-red-500 scale-105' 
-                  : 'opacity-70 hover:opacity-100 hover:ring-1 hover:ring-gray-500'
+                  ? 'ring-2 ring-red-500 scale-105 shadow-lg shadow-red-500/50' 
+                  : 'opacity-60 hover:opacity-100 hover:ring-2 hover:ring-red-400/50 hover:scale-105 border-2 border-gray-700'
               }`}
             >
               <Image
@@ -283,30 +344,35 @@ function ProjectDetail({ project, direction, onNavigate }) {
                 fill
                 className="object-cover"
               />
+              <div className={`absolute inset-0 bg-gradient-to-t from-black/60 to-transparent ${
+                currentImage === i ? 'opacity-0' : 'opacity-100'
+              } transition-opacity`}></div>
             </button>
           ))}
         </div>
         
-        <div className="mt-4 flex justify-between items-center">
-          <div className="text-sm text-gray-400">
-            Image {currentImage + 1} of {project.images.length}
+        <div className="mt-6 flex justify-between items-center bg-gradient-to-r from-red-950/20 to-transparent p-4 rounded-xl border border-red-900/20">
+          <div className="text-sm font-semibold">
+            <span className="text-red-400">Image {currentImage + 1}</span>
+            <span className="text-gray-500 mx-1">/</span>
+            <span className="text-gray-400">{project.images.length}</span>
           </div>
           <div className="flex gap-2">
             <button 
               onClick={() => setCurrentImage(prev => Math.max(0, prev - 1))}
               disabled={currentImage === 0}
-              className="p-1.5 rounded-full bg-gray-700 text-gray-300 disabled:opacity-30"
+              className="p-2 rounded-lg bg-gradient-to-r from-gray-800 to-gray-900 text-red-400 disabled:opacity-30 disabled:cursor-not-allowed hover:from-red-900/50 hover:to-red-800/50 transition-all duration-300 border border-red-900/30 hover:border-red-500/50 hover:scale-110"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
             </button>
             <button 
               onClick={() => setCurrentImage(prev => Math.min(project.images.length - 1, prev + 1))}
               disabled={currentImage === project.images.length - 1}
-              className="p-1.5 rounded-full bg-gray-700 text-gray-300 disabled:opacity-30"
+              className="p-2 rounded-lg bg-gradient-to-r from-gray-800 to-gray-900 text-red-400 disabled:opacity-30 disabled:cursor-not-allowed hover:from-red-900/50 hover:to-red-800/50 transition-all duration-300 border border-red-900/30 hover:border-red-500/50 hover:scale-110"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </button>
