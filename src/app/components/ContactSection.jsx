@@ -23,10 +23,18 @@ export default function ContactPage() {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    // Format the message for WhatsApp
+    const phoneNumber = "94759715913"; // Your phone number without + sign
+    const whatsappMessage = `*New Contact Form Message using Your portfolio website*%0A%0A*Name:* ${encodeURIComponent(formData.name)}%0A*Email:* ${encodeURIComponent(formData.email)}%0A%0A*Message:*%0A${encodeURIComponent(formData.message)}`;
     
-    alert('Thank you for your message! I will get back to you soon.');
+    // Open WhatsApp with the pre-filled message
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
+    window.open(whatsappUrl, '_blank');
+    
+    // Short delay to show the button animation
+    await new Promise(resolve => setTimeout(resolve, 500));
+    
+    alert('WhatsApp opened! Please send the message to complete your inquiry.');
     setFormData({ name: '', email: '', message: '' });
     setIsSubmitting(false);
   };
