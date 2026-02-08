@@ -32,8 +32,8 @@ export default function ResumeSection() {
       role: 'Intern Software Engineer',
       company: 'Cybernetic Technologies Pvt. Ltd.',
       location: 'Battaramulla, Sri Lanka',
-      date: 'August 2025 – Present',
-      type: 'Full-time',
+      date: '01st of August 2025 – 01st of February 2026',
+      type: 'Full-time / Onsite',
       bullets: [
         'Built scalable full-stack features using React.js, Next.js, and Angular on the frontend, combined with Laravel and Node.js on the backend.',
         'Designed and developed modular, reusable UI components with clean and maintainable code.',
