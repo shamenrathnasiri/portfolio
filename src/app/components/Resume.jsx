@@ -238,7 +238,7 @@ const education = [
 
 const freelance = [
   {
-    role: 'Graphic Designer',
+    role: 'Graphic Designer and Web Developer',
     platform: 'Self-employed',
     date: '2020 – Present',
     projects: '200+ Projects',
@@ -246,6 +246,7 @@ const freelance = [
     facebook: 'https://www.facebook.com/profile.php?id=100095599507570',
     bullets: [
       'Created logos, brand identities, and marketing materials for local businesses.',
+      'Developed and maintained responsive websites using custom HTML/CSS/JS.',
       'Designed social media content and promotional graphics.',
       'Developed print-ready designs including brochures, flyers, and business cards.',
     ],
